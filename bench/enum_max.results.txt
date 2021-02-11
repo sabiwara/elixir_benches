@@ -11,15 +11,21 @@ time: 5 s
 memory time: 0 ns
 parallel: 1
 inputs: none specified
-Estimated total run time: 14 s
+Estimated total run time: 28 s
 
 Benchmarking :lists.max/1 (list)...
 Benchmarking Enum.max/1 (list)...
+Benchmarking FastEnum.max/1 (list)...
+Benchmarking FastEnum.max/2 (list with fallback)...
 
-Name                          ips        average  deviation         median         99th %
-:lists.max/1 (list)        2.39 M        0.42 μs    ±86.55%        0.40 μs        0.68 μs
-Enum.max/1 (list)          0.52 M        1.92 μs   ±524.60%        1.84 μs        2.11 μs
+Name                                          ips        average  deviation         median         99th %
+:lists.max/1 (list)                        2.43 M      411.68 ns   ±148.36%         395 ns         663 ns
+FastEnum.max/1 (list)                      2.35 M      424.81 ns   ±322.96%         401 ns         712 ns
+FastEnum.max/2 (list with fallback)        2.21 M      452.69 ns  ±3426.85%         405 ns         796 ns
+Enum.max/1 (list)                          0.51 M     1955.52 ns   ±623.67%        1839 ns        2787 ns
 
 Comparison: 
-:lists.max/1 (list)        2.39 M
-Enum.max/1 (list)          0.52 M - 4.58x slower +1.50 μs
+:lists.max/1 (list)                        2.43 M
+FastEnum.max/1 (list)                      2.35 M - 1.03x slower +13.13 ns
+FastEnum.max/2 (list with fallback)        2.21 M - 1.10x slower +41.01 ns
+Enum.max/1 (list)                          0.51 M - 4.75x slower +1543.84 ns

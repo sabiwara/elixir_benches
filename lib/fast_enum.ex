@@ -29,6 +29,25 @@ defmodule FastEnum do
     |> elem(1)
   end
 
+  def max(list = [_ | _]) do
+    :lists.max(list)
+  end
+
+  def max(list = [_ | _], empty_fallback) when is_function(empty_fallback, 0) do
+    :lists.max(list)
+  end
+
+  def max(enumerable, empty_fallback) when is_function(empty_fallback, 0) do
+    max(enumerable, &>=/2, empty_fallback)
+  end
+
+  def max(enumerable, sorter \\ &>=/2, empty_fallback \\ fn -> raise Enum.EmptyError end) do
+    aggregate(enumerable, max_sort_fun(sorter), empty_fallback)
+  end
+
+  defp max_sort_fun(sorter) when is_function(sorter, 2), do: sorter
+  defp max_sort_fun(module) when is_atom(module), do: &(module.compare(&1, &2) != :lt)
+
   def group_by(enumerable, key_fun) when is_function(key_fun) do
     Enum.reduce(Enum.reverse(enumerable), %{}, fn entry, acc ->
       key = key_fun.(entry)
@@ -95,6 +114,55 @@ defmodule FastEnum do
   defp all_list([], _) do
     true
   end
+
+  # min/max
+
+  defp aggregate([head | tail], fun, _empty) do
+    aggregate_list(tail, head, fun)
+  end
+
+  defp aggregate([], _fun, empty) do
+    empty.()
+  end
+
+  defp aggregate(first..last, fun, _empty) do
+    case fun.(first, last) do
+      true -> first
+      false -> last
+    end
+  end
+
+  defp aggregate(enumerable, fun, empty) do
+    ref = make_ref()
+
+    enumerable
+    |> Enum.reduce(ref, fn
+      element, ^ref ->
+        element
+
+      element, acc ->
+        case fun.(acc, element) do
+          true -> acc
+          false -> element
+        end
+    end)
+    |> case do
+      ^ref -> empty.()
+      result -> result
+    end
+  end
+
+  defp aggregate_list([head | tail], acc, fun) do
+    acc =
+      case fun.(acc, head) do
+        true -> acc
+        false -> head
+      end
+
+    aggregate_list(tail, acc, fun)
+  end
+
+  defp aggregate_list([], acc, _fun), do: acc
 
   ## uniq
 
