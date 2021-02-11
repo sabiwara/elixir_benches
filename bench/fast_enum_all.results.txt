@@ -2,8 +2,8 @@ Operating System: Linux
 CPU Information: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
 Number of Available Cores: 8
 Available memory: 15.41 GB
-Elixir 1.11.1
-Erlang 23.0.4
+Elixir 1.11.3
+Erlang 24.0-rc0
 
 Benchmark suite executing with the following configuration:
 warmup: 2 s
@@ -13,19 +13,19 @@ parallel: 1
 inputs: none specified
 Estimated total run time: 28 s
 
-Benchmarking Enum.all?/2 (list)...
-Benchmarking Enum.all?/2 (range)...
-Benchmarking FastEnum.all?/2 (list)...
-Benchmarking FastEnum.all?/2 (range)...
+Benchmarking Enum.all?/1 (list)...
+Benchmarking Enum.all?/1 (range)...
+Benchmarking FastEnum.all?/1 (list)...
+Benchmarking FastEnum.all?/1 (range)...
 
 Name                              ips        average  deviation         median         99th %
-FastEnum.all?/2 (list)      2139.81 K        0.47 μs    ±94.56%        0.45 μs        0.71 μs
-Enum.all?/2 (list)           733.76 K        1.36 μs   ±759.66%        1.30 μs        1.62 μs
-FastEnum.all?/2 (range)      426.64 K        2.34 μs   ±862.67%        2.21 μs        3.23 μs
-Enum.all?/2 (range)          273.87 K        3.65 μs   ±411.37%        3.47 μs        5.37 μs
+FastEnum.all?/1 (list)      2599.84 K        0.38 μs   ±254.69%        0.33 μs        0.76 μs
+Enum.all?/1 (list)           551.54 K        1.81 μs   ±879.36%        1.65 μs        2.97 μs
+FastEnum.all?/1 (range)      460.40 K        2.17 μs  ±1133.72%        1.94 μs        2.98 μs
+Enum.all?/1 (range)          254.85 K        3.92 μs   ±480.21%        3.61 μs        5.33 μs
 
-Comparison: 
-FastEnum.all?/2 (list)      2139.81 K
-Enum.all?/2 (list)           733.76 K - 2.92x slower +0.90 μs
-FastEnum.all?/2 (range)      426.64 K - 5.02x slower +1.88 μs
-Enum.all?/2 (range)          273.87 K - 7.81x slower +3.18 μs
+Comparison:
+FastEnum.all?/1 (list)      2599.84 K
+Enum.all?/1 (list)           551.54 K - 4.71x slower +1.43 μs
+FastEnum.all?/1 (range)      460.40 K - 5.65x slower +1.79 μs
+Enum.all?/1 (range)          254.85 K - 10.20x slower +3.54 μs

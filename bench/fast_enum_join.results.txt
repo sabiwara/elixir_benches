@@ -2,8 +2,8 @@ Operating System: Linux
 CPU Information: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
 Number of Available Cores: 8
 Available memory: 15.41 GB
-Elixir 1.11.1
-Erlang 23.0.4
+Elixir 1.11.3
+Erlang 24.0-rc0
 
 Benchmark suite executing with the following configuration:
 warmup: 2 s
@@ -19,13 +19,13 @@ Benchmarking FastEnum.join/1...
 Benchmarking FastEnum.join/2...
 
 Name                      ips        average  deviation         median         99th %
-FastEnum.join/1      456.54 K        2.19 μs   ±870.37%        1.90 μs        4.18 μs
-Enum.join/1          356.27 K        2.81 μs   ±792.40%        2.48 μs        5.65 μs
-FastEnum.join/2      274.37 K        3.64 μs   ±553.56%        3.18 μs        7.87 μs
-Enum.join/2          225.27 K        4.44 μs   ±344.11%        4.06 μs        9.86 μs
+FastEnum.join/1      327.51 K        3.05 μs   ±698.80%        2.49 μs        6.05 μs
+Enum.join/1          236.40 K        4.23 μs   ±498.77%        3.62 μs        7.20 μs
+FastEnum.join/2      191.61 K        5.22 μs   ±209.43%        4.47 μs       21.35 μs
+Enum.join/2          140.38 K        7.12 μs   ±219.88%        6.18 μs       25.23 μs
 
-Comparison: 
-FastEnum.join/1      456.54 K
-Enum.join/1          356.27 K - 1.28x slower +0.62 μs
-FastEnum.join/2      274.37 K - 1.66x slower +1.45 μs
-Enum.join/2          225.27 K - 2.03x slower +2.25 μs
+Comparison:
+FastEnum.join/1      327.51 K
+Enum.join/1          236.40 K - 1.39x slower +1.18 μs
+FastEnum.join/2      191.61 K - 1.71x slower +2.17 μs
+Enum.join/2          140.38 K - 2.33x slower +4.07 μs

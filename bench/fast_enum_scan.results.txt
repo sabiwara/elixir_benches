@@ -2,8 +2,8 @@ Operating System: Linux
 CPU Information: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
 Number of Available Cores: 8
 Available memory: 15.41 GB
-Elixir 1.11.1
-Erlang 23.0.4
+Elixir 1.11.3
+Erlang 24.0-rc0
 
 Benchmark suite executing with the following configuration:
 warmup: 2 s
@@ -19,13 +19,13 @@ Benchmarking FastEnum.scan/2...
 Benchmarking FastEnum.scan/3...
 
 Name                      ips        average  deviation         median         99th %
-FastEnum.scan/2      471.40 K        2.12 μs   ±725.43%        1.98 μs        3.09 μs
-FastEnum.scan/3      463.40 K        2.16 μs   ±728.35%        2.01 μs        3.11 μs
-Enum.scan/3          273.90 K        3.65 μs   ±456.05%        3.29 μs        6.86 μs
-Enum.scan/2          238.46 K        4.19 μs   ±347.02%        3.85 μs        7.66 μs
+FastEnum.scan/2      286.91 K        3.49 μs   ±493.08%        3.29 μs        4.65 μs
+FastEnum.scan/3      282.33 K        3.54 μs   ±489.66%        3.31 μs        4.87 μs
+Enum.scan/3          184.26 K        5.43 μs   ±226.98%        5.10 μs        8.67 μs
+Enum.scan/2          174.15 K        5.74 μs   ±235.64%        5.24 μs       12.69 μs
 
-Comparison: 
-FastEnum.scan/2      471.40 K
-FastEnum.scan/3      463.40 K - 1.02x slower +0.0366 μs
-Enum.scan/3          273.90 K - 1.72x slower +1.53 μs
-Enum.scan/2          238.46 K - 1.98x slower +2.07 μs
+Comparison:
+FastEnum.scan/2      286.91 K
+FastEnum.scan/3      282.33 K - 1.02x slower +0.0566 μs
+Enum.scan/3          184.26 K - 1.56x slower +1.94 μs
+Enum.scan/2          174.15 K - 1.65x slower +2.26 μs

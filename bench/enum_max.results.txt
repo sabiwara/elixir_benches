@@ -2,8 +2,8 @@ Operating System: Linux
 CPU Information: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
 Number of Available Cores: 8
 Available memory: 15.41 GB
-Elixir 1.11.1
-Erlang 23.0.4
+Elixir 1.11.3
+Erlang 24.0-rc0
 
 Benchmark suite executing with the following configuration:
 warmup: 2 s
@@ -11,21 +11,15 @@ time: 5 s
 memory time: 0 ns
 parallel: 1
 inputs: none specified
-Estimated total run time: 28 s
+Estimated total run time: 14 s
 
 Benchmarking :lists.max/1 (list)...
 Benchmarking Enum.max/1 (list)...
-Benchmarking FastEnum.max/1 (list)...
-Benchmarking FastEnum.max/2 (list with fallback)...
 
-Name                                          ips        average  deviation         median         99th %
-:lists.max/1 (list)                        2.43 M      411.68 ns   ±148.36%         395 ns         663 ns
-FastEnum.max/1 (list)                      2.35 M      424.81 ns   ±322.96%         401 ns         712 ns
-FastEnum.max/2 (list with fallback)        2.21 M      452.69 ns  ±3426.85%         405 ns         796 ns
-Enum.max/1 (list)                          0.51 M     1955.52 ns   ±623.67%        1839 ns        2787 ns
+Name                          ips        average  deviation         median         99th %
+:lists.max/1 (list)        3.71 M        0.27 μs   ±155.53%        0.25 μs        0.62 μs
+Enum.max/1 (list)          0.30 M        3.35 μs   ±425.53%        3.12 μs        5.43 μs
 
-Comparison: 
-:lists.max/1 (list)                        2.43 M
-FastEnum.max/1 (list)                      2.35 M - 1.03x slower +13.13 ns
-FastEnum.max/2 (list with fallback)        2.21 M - 1.10x slower +41.01 ns
-Enum.max/1 (list)                          0.51 M - 4.75x slower +1543.84 ns
+Comparison:
+:lists.max/1 (list)        3.71 M
+Enum.max/1 (list)          0.30 M - 12.42x slower +3.08 μs

@@ -2,8 +2,8 @@ Operating System: Linux
 CPU Information: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
 Number of Available Cores: 8
 Available memory: 15.41 GB
-Elixir 1.11.1
-Erlang 23.0.4
+Elixir 1.11.3
+Erlang 24.0-rc0
 
 Benchmark suite executing with the following configuration:
 warmup: 2 s
@@ -21,17 +21,17 @@ Benchmarking FastEnum.uniq/1 (list)...
 Benchmarking FastEnum.uniq/1 (range)...
 
 Name                                 ips        average  deviation         median         99th %
-FastEnum.uniq/1 (dup_list)     1506.13 K        0.66 μs  ±4155.17%        0.57 μs        0.90 μs
-Enum.uniq/1 (dup_list)          544.81 K        1.84 μs   ±978.34%        1.70 μs        2.36 μs
-FastEnum.uniq/1 (list)          102.33 K        9.77 μs    ±87.65%        9.19 μs       26.63 μs
-Enum.uniq/1 (list)               87.98 K       11.37 μs    ±49.13%       10.66 μs       29.15 μs
-FastEnum.uniq/1 (range)          79.73 K       12.54 μs    ±47.36%       11.60 μs       52.64 μs
-Enum.uniq/1 (range)              72.17 K       13.86 μs    ±32.00%       13.36 μs       29.55 μs
+FastEnum.uniq/1 (dup_list)      841.61 K        1.19 μs  ±1914.87%        1.08 μs        1.64 μs
+Enum.uniq/1 (dup_list)          342.16 K        2.92 μs   ±491.39%        2.76 μs        3.85 μs
+FastEnum.uniq/1 (list)           70.39 K       14.21 μs    ±67.32%       13.22 μs       32.13 μs
+FastEnum.uniq/1 (range)          62.58 K       15.98 μs    ±31.18%       15.14 μs       33.49 μs
+Enum.uniq/1 (list)               61.68 K       16.21 μs    ±21.49%       15.43 μs       33.52 μs
+Enum.uniq/1 (range)              53.03 K       18.86 μs    ±22.48%       17.92 μs       36.82 μs
 
-Comparison: 
-FastEnum.uniq/1 (dup_list)     1506.13 K
-Enum.uniq/1 (dup_list)          544.81 K - 2.76x slower +1.17 μs
-FastEnum.uniq/1 (list)          102.33 K - 14.72x slower +9.11 μs
-Enum.uniq/1 (list)               87.98 K - 17.12x slower +10.70 μs
-FastEnum.uniq/1 (range)          79.73 K - 18.89x slower +11.88 μs
-Enum.uniq/1 (range)              72.17 K - 20.87x slower +13.19 μs
+Comparison:
+FastEnum.uniq/1 (dup_list)      841.61 K
+Enum.uniq/1 (dup_list)          342.16 K - 2.46x slower +1.73 μs
+FastEnum.uniq/1 (list)           70.39 K - 11.96x slower +13.02 μs
+FastEnum.uniq/1 (range)          62.58 K - 13.45x slower +14.79 μs
+Enum.uniq/1 (list)               61.68 K - 13.64x slower +15.02 μs
+Enum.uniq/1 (range)              53.03 K - 15.87x slower +17.67 μs

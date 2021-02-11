@@ -2,8 +2,8 @@ Operating System: Linux
 CPU Information: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
 Number of Available Cores: 8
 Available memory: 15.41 GB
-Elixir 1.11.1
-Erlang 23.0.4
+Elixir 1.11.3
+Erlang 24.0-rc0
 
 Benchmark suite executing with the following configuration:
 warmup: 2 s
@@ -19,13 +19,13 @@ Benchmarking FastEnum.group_by/2 (list)...
 Benchmarking FastEnum.group_by/2 (range)...
 
 Name                                  ips        average  deviation         median         99th %
-FastEnum.group_by/2 (list)       138.81 K        7.20 μs   ±161.83%        6.84 μs       16.12 μs
-Enum.group_by/2 (list)           128.82 K        7.76 μs   ±106.08%        7.33 μs       20.62 μs
-FastEnum.group_by/2 (range)      113.42 K        8.82 μs   ±100.67%        8.36 μs       22.29 μs
-Enum.group_by/2 (range)          107.56 K        9.30 μs   ±100.30%        8.84 μs       22.96 μs
+FastEnum.group_by/2 (list)        92.52 K       10.81 μs   ±102.35%        9.94 μs       26.61 μs
+FastEnum.group_by/2 (range)       82.69 K       12.09 μs    ±31.54%       11.60 μs       27.45 μs
+Enum.group_by/2 (list)            80.31 K       12.45 μs    ±71.22%       11.37 μs       31.69 μs
+Enum.group_by/2 (range)           73.71 K       13.57 μs    ±33.05%       12.85 μs       30.57 μs
 
-Comparison: 
-FastEnum.group_by/2 (list)       138.81 K
-Enum.group_by/2 (list)           128.82 K - 1.08x slower +0.56 μs
-FastEnum.group_by/2 (range)      113.42 K - 1.22x slower +1.61 μs
-Enum.group_by/2 (range)          107.56 K - 1.29x slower +2.09 μs
+Comparison:
+FastEnum.group_by/2 (list)        92.52 K
+FastEnum.group_by/2 (range)       82.69 K - 1.12x slower +1.29 μs
+Enum.group_by/2 (list)            80.31 K - 1.15x slower +1.64 μs
+Enum.group_by/2 (range)           73.71 K - 1.26x slower +2.76 μs

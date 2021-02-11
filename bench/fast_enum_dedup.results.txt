@@ -2,8 +2,8 @@ Operating System: Linux
 CPU Information: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
 Number of Available Cores: 8
 Available memory: 15.41 GB
-Elixir 1.11.1
-Erlang 23.0.4
+Elixir 1.11.3
+Erlang 24.0-rc0
 
 Benchmark suite executing with the following configuration:
 warmup: 2 s
@@ -21,17 +21,17 @@ Benchmarking FastEnum.dedup/1 (list)...
 Benchmarking FastEnum.dedup/1 (range)...
 
 Name                                  ips        average  deviation         median         99th %
-FastEnum.dedup/1 (dup_list)     1903.95 K        0.53 μs   ±920.20%        0.47 μs        0.96 μs
-FastEnum.dedup/1 (list)         1085.63 K        0.92 μs  ±2176.69%        0.72 μs        1.81 μs
-FastEnum.dedup/1 (range)         385.48 K        2.59 μs   ±745.29%        2.20 μs        5.01 μs
-Enum.dedup/1 (dup_list)          321.17 K        3.11 μs   ±609.15%        2.77 μs        5.70 μs
-Enum.dedup/1 (list)              232.24 K        4.31 μs   ±434.69%        3.68 μs       13.18 μs
-Enum.dedup/1 (range)             189.38 K        5.28 μs   ±239.18%        4.63 μs       21.16 μs
+FastEnum.dedup/1 (dup_list)     3658.52 K        0.27 μs  ±1434.35%        0.25 μs        0.61 μs
+FastEnum.dedup/1 (list)         1244.20 K        0.80 μs  ±2968.59%        0.64 μs        1.14 μs
+FastEnum.dedup/1 (range)         469.68 K        2.13 μs   ±944.88%        1.91 μs        3.10 μs
+Enum.dedup/1 (dup_list)          287.23 K        3.48 μs   ±579.52%        3.23 μs        4.54 μs
+Enum.dedup/1 (list)              254.24 K        3.93 μs   ±373.87%        3.55 μs        6.39 μs
+Enum.dedup/1 (range)             229.58 K        4.36 μs   ±360.50%        3.97 μs        7.22 μs
 
-Comparison: 
-FastEnum.dedup/1 (dup_list)     1903.95 K
-FastEnum.dedup/1 (list)         1085.63 K - 1.75x slower +0.40 μs
-FastEnum.dedup/1 (range)         385.48 K - 4.94x slower +2.07 μs
-Enum.dedup/1 (dup_list)          321.17 K - 5.93x slower +2.59 μs
-Enum.dedup/1 (list)              232.24 K - 8.20x slower +3.78 μs
-Enum.dedup/1 (range)             189.38 K - 10.05x slower +4.76 μs
+Comparison:
+FastEnum.dedup/1 (dup_list)     3658.52 K
+FastEnum.dedup/1 (list)         1244.20 K - 2.94x slower +0.53 μs
+FastEnum.dedup/1 (range)         469.68 K - 7.79x slower +1.86 μs
+Enum.dedup/1 (dup_list)          287.23 K - 12.74x slower +3.21 μs
+Enum.dedup/1 (list)              254.24 K - 14.39x slower +3.66 μs
+Enum.dedup/1 (range)             229.58 K - 15.94x slower +4.08 μs
