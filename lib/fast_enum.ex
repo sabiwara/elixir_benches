@@ -29,6 +29,29 @@ defmodule FastEnum do
     |> elem(1)
   end
 
+  def group_by(enumerable, key_fun) when is_function(key_fun) do
+    Enum.reduce(Enum.reverse(enumerable), %{}, fn entry, acc ->
+      key = key_fun.(entry)
+
+      case acc do
+        %{^key => existing} -> Map.put(acc, key, [entry | existing])
+        %{} -> Map.put(acc, key, [entry])
+      end
+    end)
+  end
+
+  def group_by(enumerable, key_fun, value_fun) when is_function(key_fun) do
+    Enum.reduce(Enum.reverse(enumerable), %{}, fn entry, acc ->
+      key = key_fun.(entry)
+      value = value_fun.(entry)
+
+      case acc do
+        %{^key => existing} -> Map.put(acc, key, [value | existing])
+        %{} -> Map.put(acc, key, [value])
+      end
+    end)
+  end
+
   def uniq(enumerable) when is_list(enumerable) do
     uniq_list(enumerable, %{})
   end
