@@ -29,6 +29,22 @@ defmodule FastEnum do
     |> elem(1)
   end
 
+  def uniq(enumerable) when is_list(enumerable) do
+    uniq_list(enumerable, %{})
+  end
+
+  def uniq(enumerable) do
+    {list, _} =
+      Enum.reduce(enumerable, {[], %{}}, fn x, {acc, set} ->
+        case set do
+          %{^x => _} -> {acc, set}
+          _ -> {[x | acc], Map.put(set, x, nil)}
+        end
+      end)
+
+    :lists.reverse(list)
+  end
+
   ## Implementations
 
   ## all?/1
@@ -55,5 +71,18 @@ defmodule FastEnum do
 
   defp all_list([], _) do
     true
+  end
+
+  ## uniq
+
+  defp uniq_list([value | tail], set) do
+    case set do
+      %{^value => true} -> uniq_list(tail, set)
+      %{} -> [value | uniq_list(tail, Map.put(set, value, true))]
+    end
+  end
+
+  defp uniq_list([], _set) do
+    []
   end
 end
