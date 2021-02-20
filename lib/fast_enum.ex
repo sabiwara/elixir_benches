@@ -29,6 +29,20 @@ defmodule FastEnum do
     |> elem(1)
   end
 
+  def dedup(enumerable) when is_list(enumerable) do
+    dedup_list(enumerable, []) |> :lists.reverse()
+  end
+
+  def dedup(enumerable) do
+    Enum.reduce(enumerable, [], fn x, acc ->
+      case acc do
+        [^x, _] -> acc
+        _ -> [x | acc]
+      end
+    end)
+    |> :lists.reverse()
+  end
+
   def max(list = [_ | _]) do
     :lists.max(list)
   end
@@ -163,6 +177,23 @@ defmodule FastEnum do
   end
 
   defp aggregate_list([], acc, _fun), do: acc
+
+  ## dedup
+
+  @compile {:inline, dedup_list: 2}
+  defp dedup_list([value | tail], acc) do
+    acc =
+      case acc do
+        [^value | _] -> acc
+        _ -> [value | acc]
+      end
+
+    dedup_list(tail, acc)
+  end
+
+  defp dedup_list([], acc) do
+    acc
+  end
 
   ## uniq
 

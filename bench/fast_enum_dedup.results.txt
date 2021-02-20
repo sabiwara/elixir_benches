@@ -1,0 +1,37 @@
+Operating System: Linux
+CPU Information: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
+Number of Available Cores: 8
+Available memory: 15.41 GB
+Elixir 1.11.1
+Erlang 23.0.4
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 0 ns
+parallel: 1
+inputs: none specified
+Estimated total run time: 42 s
+
+Benchmarking Enum.dedup/1 (dup_list)...
+Benchmarking Enum.dedup/1 (list)...
+Benchmarking Enum.dedup/1 (range)...
+Benchmarking FastEnum.dedup/1 (dup_list)...
+Benchmarking FastEnum.dedup/1 (list)...
+Benchmarking FastEnum.dedup/1 (range)...
+
+Name                                  ips        average  deviation         median         99th %
+FastEnum.dedup/1 (dup_list)     2115.39 K        0.47 μs   ±737.30%        0.45 μs        0.72 μs
+FastEnum.dedup/1 (list)         1199.21 K        0.83 μs  ±3095.68%        0.71 μs        1.31 μs
+FastEnum.dedup/1 (range)         439.71 K        2.27 μs   ±753.39%        2.10 μs        4.00 μs
+Enum.dedup/1 (dup_list)          345.00 K        2.90 μs   ±513.17%        2.71 μs        3.76 μs
+Enum.dedup/1 (list)              249.11 K        4.01 μs   ±349.68%        3.62 μs        6.54 μs
+Enum.dedup/1 (range)             224.19 K        4.46 μs   ±351.56%        4.09 μs        7.93 μs
+
+Comparison: 
+FastEnum.dedup/1 (dup_list)     2115.39 K
+FastEnum.dedup/1 (list)         1199.21 K - 1.76x slower +0.36 μs
+FastEnum.dedup/1 (range)         439.71 K - 4.81x slower +1.80 μs
+Enum.dedup/1 (dup_list)          345.00 K - 6.13x slower +2.43 μs
+Enum.dedup/1 (list)              249.11 K - 8.49x slower +3.54 μs
+Enum.dedup/1 (range)             224.19 K - 9.44x slower +3.99 μs
