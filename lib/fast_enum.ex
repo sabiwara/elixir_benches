@@ -180,7 +180,6 @@ defmodule FastEnum do
 
   ## dedup
 
-  @compile {:inline, dedup_list: 2}
   defp dedup_list([value | tail], acc) do
     acc =
       case acc do

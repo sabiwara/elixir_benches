@@ -21,17 +21,17 @@ Benchmarking FastEnum.dedup/1 (list)...
 Benchmarking FastEnum.dedup/1 (range)...
 
 Name                                  ips        average  deviation         median         99th %
-FastEnum.dedup/1 (dup_list)     2115.39 K        0.47 μs   ±737.30%        0.45 μs        0.72 μs
-FastEnum.dedup/1 (list)         1199.21 K        0.83 μs  ±3095.68%        0.71 μs        1.31 μs
-FastEnum.dedup/1 (range)         439.71 K        2.27 μs   ±753.39%        2.10 μs        4.00 μs
-Enum.dedup/1 (dup_list)          345.00 K        2.90 μs   ±513.17%        2.71 μs        3.76 μs
-Enum.dedup/1 (list)              249.11 K        4.01 μs   ±349.68%        3.62 μs        6.54 μs
-Enum.dedup/1 (range)             224.19 K        4.46 μs   ±351.56%        4.09 μs        7.93 μs
+FastEnum.dedup/1 (dup_list)     1903.95 K        0.53 μs   ±920.20%        0.47 μs        0.96 μs
+FastEnum.dedup/1 (list)         1085.63 K        0.92 μs  ±2176.69%        0.72 μs        1.81 μs
+FastEnum.dedup/1 (range)         385.48 K        2.59 μs   ±745.29%        2.20 μs        5.01 μs
+Enum.dedup/1 (dup_list)          321.17 K        3.11 μs   ±609.15%        2.77 μs        5.70 μs
+Enum.dedup/1 (list)              232.24 K        4.31 μs   ±434.69%        3.68 μs       13.18 μs
+Enum.dedup/1 (range)             189.38 K        5.28 μs   ±239.18%        4.63 μs       21.16 μs
 
 Comparison: 
-FastEnum.dedup/1 (dup_list)     2115.39 K
-FastEnum.dedup/1 (list)         1199.21 K - 1.76x slower +0.36 μs
-FastEnum.dedup/1 (range)         439.71 K - 4.81x slower +1.80 μs
-Enum.dedup/1 (dup_list)          345.00 K - 6.13x slower +2.43 μs
-Enum.dedup/1 (list)              249.11 K - 8.49x slower +3.54 μs
-Enum.dedup/1 (range)             224.19 K - 9.44x slower +3.99 μs
+FastEnum.dedup/1 (dup_list)     1903.95 K
+FastEnum.dedup/1 (list)         1085.63 K - 1.75x slower +0.40 μs
+FastEnum.dedup/1 (range)         385.48 K - 4.94x slower +2.07 μs
+Enum.dedup/1 (dup_list)          321.17 K - 5.93x slower +2.59 μs
+Enum.dedup/1 (list)              232.24 K - 8.20x slower +3.78 μs
+Enum.dedup/1 (range)             189.38 K - 10.05x slower +4.76 μs
