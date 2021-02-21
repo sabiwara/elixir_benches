@@ -85,6 +85,31 @@ defmodule FastEnum do
     end)
   end
 
+  # scan/2
+
+  def scan(enumerable, fun)
+
+  def scan([], _fun), do: []
+
+  def scan([elem | rest], fun) do
+    scanned = scan_list(rest, elem, fun)
+    [elem | scanned]
+  end
+
+  def scan(enumerable, fun) do
+    Enum.reduce(enumerable, fun)
+  end
+
+  # scan/3
+
+  def scan(enumerable, acc, fun) when is_list(enumerable) do
+    scan_list(enumerable, acc, fun)
+  end
+
+  def scan(enumerable, acc, fun) do
+    Enum.reduce(enumerable, acc, fun)
+  end
+
   def uniq(enumerable) when is_list(enumerable) do
     uniq_list(enumerable, %{})
   end
@@ -192,6 +217,15 @@ defmodule FastEnum do
 
   defp dedup_list([], acc) do
     acc
+  end
+
+  ## scan
+
+  defp scan_list([], _acc, _fun), do: []
+
+  defp scan_list([elem | rest], acc, fun) do
+    acc = fun.(elem, acc)
+    [acc | scan_list(rest, acc, fun)]
   end
 
   ## uniq
