@@ -97,7 +97,7 @@ defmodule FastEnum do
   end
 
   def scan(enumerable, fun) do
-    Enum.reduce(enumerable, fun)
+    Enum.scan(enumerable, fun)
   end
 
   # scan/3
@@ -107,7 +107,7 @@ defmodule FastEnum do
   end
 
   def scan(enumerable, acc, fun) do
-    Enum.reduce(enumerable, acc, fun)
+    Enum.scan(enumerable, acc, fun)
   end
 
   def uniq(enumerable) when is_list(enumerable) do
@@ -124,6 +124,16 @@ defmodule FastEnum do
       end)
 
     :lists.reverse(list)
+  end
+
+  def with_index(enumerable, offset \\ 0)
+
+  def with_index(enumerable, offset) when is_list(enumerable) and is_integer(offset) do
+    with_index_list(enumerable, offset)
+  end
+
+  def with_index(enumerable, offset) do
+    Enum.with_index(enumerable, offset)
   end
 
   ## Implementations
@@ -239,5 +249,17 @@ defmodule FastEnum do
 
   defp uniq_list([], _set) do
     []
+  end
+
+  # with_index
+
+  defp with_index_list(list, offset, acc \\ [])
+
+  @compile {:inline, with_index_list: 3}
+
+  defp with_index_list([], _offset, acc), do: :lists.reverse(acc)
+
+  defp with_index_list([elem | rest], offset, acc) do
+    with_index_list(rest, offset + 1, [{elem, offset} | acc])
   end
 end
