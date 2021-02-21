@@ -43,6 +43,32 @@ defmodule FastEnum do
     |> :lists.reverse()
   end
 
+  def intersperse(enumerable, element) when is_list(enumerable) do
+    case enumerable do
+      [] -> []
+      list -> intersperse_non_empty_list(list, element)
+    end
+  end
+
+  def intersperse(enumerable, element) do
+    list =
+      enumerable
+      |> Enum.reduce([], fn x, acc -> [x, element | acc] end)
+      |> :lists.reverse()
+
+    # Head is a superfluous intersperser element
+    case list do
+      [] -> []
+      [_ | t] -> t
+    end
+  end
+
+  defp intersperse_non_empty_list([first], _element), do: [first]
+
+  defp intersperse_non_empty_list([first | rest], element) do
+    [first, element | intersperse_non_empty_list(rest, element)]
+  end
+
   def max(list = [_ | _]) do
     :lists.max(list)
   end
