@@ -289,22 +289,23 @@ defmodule FastEnum do
 
   defp join_list(list, separator) do
     case separator do
-      "" -> join_non_empty_list(list)
-      _ -> join_non_empty_list(list, separator)
+      "" -> do_join_list(list, [])
+      _ -> join_non_empty_list(list, separator, [])
     end
+    |> :lists.reverse()
     |> IO.iodata_to_binary()
   end
 
-  defp join_non_empty_list([first]), do: [entry_to_string(first)]
+  defp do_join_list([], acc), do: acc
 
-  defp join_non_empty_list([first | rest]) do
-    [entry_to_string(first) | join_non_empty_list(rest)]
+  defp do_join_list([first | rest], acc) do
+    do_join_list(rest, [entry_to_string(first) | acc])
   end
 
-  defp join_non_empty_list([first], _element), do: [entry_to_string(first)]
+  defp join_non_empty_list([first], _element, acc), do: [entry_to_string(first) | acc]
 
-  defp join_non_empty_list([first | rest], element) do
-    [entry_to_string(first), element | join_non_empty_list(rest, element)]
+  defp join_non_empty_list([first | rest], element, acc) do
+    join_non_empty_list(rest, element, [element, entry_to_string(first) | acc])
   end
 
   @compile {:inline, entry_to_string: 1}

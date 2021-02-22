@@ -19,13 +19,13 @@ Benchmarking FastEnum.join/1...
 Benchmarking FastEnum.join/2...
 
 Name                      ips        average  deviation         median         99th %
-FastEnum.join/1      384.24 K        2.60 μs   ±875.15%        2.14 μs        5.19 μs
-Enum.join/1          314.89 K        3.18 μs   ±738.35%        2.69 μs        6.51 μs
-FastEnum.join/2      258.72 K        3.87 μs   ±457.31%        3.27 μs        8.09 μs
-Enum.join/2          199.31 K        5.02 μs   ±333.74%        4.30 μs       12.22 μs
+FastEnum.join/1      456.54 K        2.19 μs   ±870.37%        1.90 μs        4.18 μs
+Enum.join/1          356.27 K        2.81 μs   ±792.40%        2.48 μs        5.65 μs
+FastEnum.join/2      274.37 K        3.64 μs   ±553.56%        3.18 μs        7.87 μs
+Enum.join/2          225.27 K        4.44 μs   ±344.11%        4.06 μs        9.86 μs
 
 Comparison: 
-FastEnum.join/1      384.24 K
-Enum.join/1          314.89 K - 1.22x slower +0.57 μs
-FastEnum.join/2      258.72 K - 1.49x slower +1.26 μs
-Enum.join/2          199.31 K - 1.93x slower +2.41 μs
+FastEnum.join/1      456.54 K
+Enum.join/1          356.27 K - 1.28x slower +0.62 μs
+FastEnum.join/2      274.37 K - 1.66x slower +1.45 μs
+Enum.join/2          225.27 K - 2.03x slower +2.25 μs
