@@ -63,10 +63,30 @@ defmodule FastEnum do
     end
   end
 
-  defp intersperse_non_empty_list([first], _element), do: [first]
+  def join(enumerable, joiner \\ "")
 
-  defp intersperse_non_empty_list([first | rest], element) do
-    [first, element | intersperse_non_empty_list(rest, element)]
+  def join(enumerable, joiner) when is_list(enumerable) and is_binary(joiner) do
+    join_list(enumerable, joiner)
+  end
+
+  def join(enumerable, "") do
+    enumerable
+    |> Enum.map(&entry_to_string(&1))
+    |> IO.iodata_to_binary()
+  end
+
+  def join(enumerable, joiner) when is_binary(joiner) do
+    reduced =
+      Enum.reduce(enumerable, :first, fn
+        entry, :first -> entry_to_string(entry)
+        entry, acc -> [acc, joiner | entry_to_string(entry)]
+      end)
+
+    if reduced == :first do
+      ""
+    else
+      IO.iodata_to_binary(reduced)
+    end
   end
 
   def max(list = [_ | _]) do
@@ -254,6 +274,43 @@ defmodule FastEnum do
   defp dedup_list([], acc) do
     acc
   end
+
+  # intersperse
+
+  defp intersperse_non_empty_list([first], _element), do: [first]
+
+  defp intersperse_non_empty_list([first | rest], element) do
+    [first, element | intersperse_non_empty_list(rest, element)]
+  end
+
+  # join
+
+  defp join_list([], _separator), do: ""
+
+  defp join_list(list, separator) do
+    case separator do
+      "" -> join_non_empty_list(list)
+      _ -> join_non_empty_list(list, separator)
+    end
+    |> IO.iodata_to_binary()
+  end
+
+  defp join_non_empty_list([first]), do: [entry_to_string(first)]
+
+  defp join_non_empty_list([first | rest]) do
+    [entry_to_string(first) | join_non_empty_list(rest)]
+  end
+
+  defp join_non_empty_list([first], _element), do: [entry_to_string(first)]
+
+  defp join_non_empty_list([first | rest], element) do
+    [entry_to_string(first), element | join_non_empty_list(rest, element)]
+  end
+
+  @compile {:inline, entry_to_string: 1}
+
+  defp entry_to_string(entry) when is_binary(entry), do: entry
+  defp entry_to_string(entry), do: String.Chars.to_string(entry)
 
   ## scan
 
