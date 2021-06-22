@@ -198,6 +198,13 @@ defmodule FastEnum do
     zip_lists(tail1, tail2, [{head1, head2} | acc])
   end
 
+  def zip_list_body([head1 | next1], [head2 | next2]) do
+    [{head1, head2} | zip_list_body(next1, next2)]
+  end
+
+  def zip_list_body(_, []), do: []
+  def zip_list_body([], _), do: []
+
   def filter(enumerable, fun) when is_list(enumerable) do
     filter_list(enumerable, fun, [])
   end
