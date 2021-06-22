@@ -182,6 +182,22 @@ defmodule FastEnum do
     Enum.with_index(enumerable, offset)
   end
 
+  def zip(enumerable1, enumerable2) when is_list(enumerable1) and is_list(enumerable2) do
+    zip_lists(enumerable1, enumerable2, [])
+  end
+
+  def zip(enumerable1, enumerable2) do
+    Enum.zip(enumerable1, enumerable2)
+  end
+
+  defp zip_lists(list1, list2, acc) when list1 == [] or list2 == [] do
+    :lists.reverse(acc)
+  end
+
+  defp zip_lists([head1 | tail1], [head2 | tail2], acc) do
+    zip_lists(tail1, tail2, [{head1, head2} | acc])
+  end
+
   ## Implementations
 
   ## all?/1
