@@ -198,6 +198,44 @@ defmodule FastEnum do
     zip_lists(tail1, tail2, [{head1, head2} | acc])
   end
 
+  def filter(enumerable, fun) when is_list(enumerable) do
+    filter_list(enumerable, fun, [])
+  end
+
+  def filter(enumerable, fun) do
+    Enum.filter(enumerable, fun)
+  end
+
+  defp filter_list([], _fun, acc), do: :lists.reverse(acc)
+
+  defp filter_list([head | tail], fun, acc) do
+    acc =
+      if fun.(head) do
+        [head | acc]
+      else
+        acc
+      end
+
+    filter_list(tail, fun, acc)
+  end
+
+  def map(enumerable, fun) when is_list(enumerable) do
+    map_list(enumerable, fun, [])
+  end
+
+  def map(enumerable, fun) do
+    Enum.map(enumerable, fun)
+  end
+
+  # note: this is much slower than :lists.map
+  defp map_list([], _fun, acc), do: :lists.reverse(acc)
+
+  defp map_list([head | tail], fun, acc) do
+    acc = [fun.(head) | acc]
+
+    map_list(tail, fun, acc)
+  end
+
   ## Implementations
 
   ## all?/1
