@@ -29,6 +29,18 @@ defmodule FastEnum do
     |> elem(1)
   end
 
+  # slower for non-lists... check concat/2 when right is a list?
+  def concat(enumerable) do
+    Enum.reverse(enumerable) |> do_concat([])
+  end
+
+  defp do_concat([], acc), do: acc
+
+  defp do_concat([head | tail], acc) do
+    new_acc = Enum.concat(head, acc)
+    do_concat(tail, new_acc)
+  end
+
   def dedup(enumerable) when is_list(enumerable) do
     dedup_list(enumerable, []) |> :lists.reverse()
   end
