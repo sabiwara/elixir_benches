@@ -101,6 +101,23 @@ defmodule FastEnum do
     end
   end
 
+  def sum(enumerable)
+
+  def sum(list) when is_list(list) do
+    :lists.sum(list)
+  end
+
+  def sum(first..last//step = range) do
+    range
+    |> Range.size()
+    |> Kernel.*(first + last - rem(last - first, step))
+    |> div(2)
+  end
+
+  def sum(enumerable) do
+    Enum.reduce(enumerable, 0, &+/2)
+  end
+
   def max(list = [_ | _]) do
     :lists.max(list)
   end
