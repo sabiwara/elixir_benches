@@ -1,0 +1,34 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.13.3
+Erlang 24.2.1
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 0 ns
+parallel: 1
+inputs: none specified
+Estimated total run time: 35 s
+
+Benchmarking Map.fetch!/1...
+Benchmarking Map.fetch/1...
+Benchmarking Map.get/1...
+Benchmarking map[key] access...
+Benchmarking pattern matching...
+
+Name                       ips        average  deviation         median         99th %
+pattern matching       63.80 M       15.67 ns   ±188.65%          20 ns          20 ns
+Map.fetch!/1           27.57 M       36.27 ns  ±6928.41%           0 ns         100 ns
+Map.fetch/1            23.15 M       43.19 ns  ±6234.46%           0 ns        1000 ns
+Map.get/1              20.54 M       48.68 ns   ±450.11%           0 ns        1000 ns
+map[key] access        15.23 M       65.66 ns  ±2035.46%           0 ns        1000 ns
+
+Comparison: 
+pattern matching       63.80 M
+Map.fetch!/1           27.57 M - 2.31x slower +20.60 ns
+Map.fetch/1            23.15 M - 2.76x slower +27.51 ns
+Map.get/1              20.54 M - 3.11x slower +33.01 ns
+map[key] access        15.23 M - 4.19x slower +49.99 ns
