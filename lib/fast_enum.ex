@@ -201,6 +201,10 @@ defmodule FastEnum do
     :lists.reverse(list)
   end
 
+  def with_index_body_rec(enumerable) when is_list(enumerable) do
+    body_rec_with_index(enumerable, 0)
+  end
+
   def with_index(enumerable, offset \\ 0)
 
   def with_index(enumerable, offset) when is_list(enumerable) and is_integer(offset) do
@@ -430,6 +434,12 @@ defmodule FastEnum do
   end
 
   # with_index
+
+  defp body_rec_with_index([], _offset), do: []
+
+  defp body_rec_with_index([elem | rest], offset) do
+    [{elem, offset} | body_rec_with_index(rest, offset + 1)]
+  end
 
   defp with_index_list([], _offset, acc), do: :lists.reverse(acc)
 

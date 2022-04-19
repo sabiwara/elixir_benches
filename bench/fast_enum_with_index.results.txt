@@ -11,21 +11,24 @@ time: 5 s
 memory time: 0 ns
 parallel: 1
 inputs: none specified
-Estimated total run time: 28 s
+Estimated total run time: 35 s
 
 Benchmarking Enum.with_index/2 (fun)...
 Benchmarking Enum.with_index/2 (offset)...
 Benchmarking FastEnum.with_index/2 (fun)...
 Benchmarking FastEnum.with_index/2 (offset)...
+Benchmarking FastEnum.with_index_body_rec/2 (offset)...
 
-Name                                     ips        average  deviation         median         99th %
-FastEnum.with_index/2 (offset)        2.41 M        0.41 μs  ±4692.10%           0 μs        1.00 μs
-FastEnum.with_index/2 (fun)           1.68 M        0.60 μs  ±4030.26%        1.00 μs        1.00 μs
-Enum.with_index/2 (offset)            0.80 M        1.26 μs  ±1161.76%        1.00 μs        2.00 μs
-Enum.with_index/2 (fun)               0.56 M        1.80 μs  ±3289.84%        1.00 μs        4.00 μs
+Name                                              ips        average  deviation         median         99th %
+FastEnum.with_index/2 (offset)                 2.46 M      405.70 ns  ±4500.54%           0 ns         997 ns
+FastEnum.with_index/2 (fun)                    1.68 M      593.81 ns  ±3980.99%         997 ns         997 ns
+FastEnum.with_index_body_rec/2 (offset)        1.16 M      865.76 ns  ±2250.97%         997 ns         997 ns
+Enum.with_index/2 (offset)                     0.79 M     1259.25 ns  ±1227.99%         997 ns        1997 ns
+Enum.with_index/2 (fun)                        0.77 M     1303.35 ns  ±1275.28%         997 ns        1997 ns
 
 Comparison: 
-FastEnum.with_index/2 (offset)        2.41 M
-FastEnum.with_index/2 (fun)           1.68 M - 1.44x slower +0.181 μs
-Enum.with_index/2 (offset)            0.80 M - 3.03x slower +0.84 μs
-Enum.with_index/2 (fun)               0.56 M - 4.33x slower +1.38 μs
+FastEnum.with_index/2 (offset)                 2.46 M
+FastEnum.with_index/2 (fun)                    1.68 M - 1.46x slower +188.10 ns
+FastEnum.with_index_body_rec/2 (offset)        1.16 M - 2.13x slower +460.05 ns
+Enum.with_index/2 (offset)                     0.79 M - 3.10x slower +853.55 ns
+Enum.with_index/2 (fun)                        0.77 M - 3.21x slower +897.64 ns
