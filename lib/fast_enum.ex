@@ -204,7 +204,11 @@ defmodule FastEnum do
   def with_index(enumerable, offset \\ 0)
 
   def with_index(enumerable, offset) when is_list(enumerable) and is_integer(offset) do
-    with_index_list(enumerable, offset)
+    with_index_list(enumerable, offset, [])
+  end
+
+  def with_index(enumerable, fun) when is_list(enumerable) and is_function(fun, 2) do
+    with_index_list(enumerable, 0, fun, [])
   end
 
   def with_index(enumerable, offset) do
@@ -427,13 +431,15 @@ defmodule FastEnum do
 
   # with_index
 
-  defp with_index_list(list, offset, acc \\ [])
-
-  @compile {:inline, with_index_list: 3}
-
   defp with_index_list([], _offset, acc), do: :lists.reverse(acc)
 
   defp with_index_list([elem | rest], offset, acc) do
     with_index_list(rest, offset + 1, [{elem, offset} | acc])
+  end
+
+  defp with_index_list([], _offset, _fun, acc), do: :lists.reverse(acc)
+
+  defp with_index_list([elem | rest], offset, fun, acc) do
+    with_index_list(rest, offset + 1, fun, [fun.(elem, offset) | acc])
   end
 end
