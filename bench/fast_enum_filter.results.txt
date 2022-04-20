@@ -1,9 +1,9 @@
-Operating System: macOS
-CPU Information: Apple M1
+Operating System: Linux
+CPU Information: Intel(R) Core(TM) i7-8550U CPU @ 1.80GHz
 Number of Available Cores: 8
-Available memory: 16 GB
+Available memory: 15.40 GB
 Elixir 1.13.4
-Erlang 25.0-rc2
+Erlang 24.2
 
 Benchmark suite executing with the following configuration:
 warmup: 2 s
@@ -17,9 +17,9 @@ Benchmarking Enum.filter/2...
 Benchmarking FastEnum.filter/2...
 
 Name                        ips        average  deviation         median         99th %
-FastEnum.filter/2      184.94 K        5.41 μs    ±98.94%           5 μs          17 μs
-Enum.filter/2          132.78 K        7.53 μs    ±77.63%           7 μs          10 μs
+Enum.filter/2           55.00 K       18.18 μs    ±48.98%       17.11 μs       40.47 μs
+FastEnum.filter/2       53.20 K       18.80 μs    ±46.00%       17.56 μs       41.60 μs
 
 Comparison: 
-FastEnum.filter/2      184.94 K
-Enum.filter/2          132.78 K - 1.39x slower +2.12 μs
+Enum.filter/2           55.00 K
+FastEnum.filter/2       53.20 K - 1.03x slower +0.62 μs
