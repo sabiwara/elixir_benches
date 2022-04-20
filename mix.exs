@@ -21,7 +21,7 @@ defmodule ElixirBenches.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:benchee, "~> 1.0.1"}
+      {:benchee, "~> 1.1.0"}
     ]
   end
 end
