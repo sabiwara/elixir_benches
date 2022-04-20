@@ -1,0 +1,131 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.13.4
+Erlang 25.0-rc2
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 1 s
+reduction time: 0 ns
+parallel: 1
+inputs: 10, 100, 1000, 10000, 100000
+Estimated total run time: 2 min
+
+Benchmarking Enum.with_index/2 with input 10 ...
+Benchmarking Enum.with_index/2 with input 100 ...
+Benchmarking Enum.with_index/2 with input 1000 ...
+Benchmarking Enum.with_index/2 with input 10000 ...
+Benchmarking Enum.with_index/2 with input 100000 ...
+Benchmarking FastEnum.with_index/2 with input 10 ...
+Benchmarking FastEnum.with_index/2 with input 100 ...
+Benchmarking FastEnum.with_index/2 with input 1000 ...
+Benchmarking FastEnum.with_index/2 with input 10000 ...
+Benchmarking FastEnum.with_index/2 with input 100000 ...
+Benchmarking FastEnum.with_index_body_rec/2 with input 10 ...
+Benchmarking FastEnum.with_index_body_rec/2 with input 100 ...
+Benchmarking FastEnum.with_index_body_rec/2 with input 1000 ...
+Benchmarking FastEnum.with_index_body_rec/2 with input 10000 ...
+Benchmarking FastEnum.with_index_body_rec/2 with input 100000 ...
+
+##### With input 10 #####
+Name                                     ips        average  deviation         median         99th %
+FastEnum.with_index_body_rec/2       26.59 M       37.61 ns    ±47.75%          29 ns          75 ns
+FastEnum.with_index/2                23.94 M       41.76 ns    ±37.98%          32 ns          72 ns
+Enum.with_index/2                     9.92 M      100.77 ns   ±134.27%          90 ns         440 ns
+
+Comparison: 
+FastEnum.with_index_body_rec/2       26.59 M
+FastEnum.with_index/2                23.94 M - 1.11x slower +4.15 ns
+Enum.with_index/2                     9.92 M - 2.68x slower +63.15 ns
+
+Memory usage statistics:
+
+Name                              Memory usage
+FastEnum.with_index_body_rec/2           400 B
+FastEnum.with_index/2                    560 B - 1.40x memory usage +160 B
+Enum.with_index/2                        952 B - 2.38x memory usage +552 B
+
+**All measurements for memory usage were the same**
+
+##### With input 100 #####
+Name                                     ips        average  deviation         median         99th %
+FastEnum.with_index/2                 2.19 M      456.08 ns    ±36.24%         360 ns         730 ns
+FastEnum.with_index_body_rec/2        1.27 M      787.11 ns     ±3.58%         780 ns      898.30 ns
+Enum.with_index/2                     0.80 M     1244.87 ns   ±121.62%        1200 ns        4000 ns
+
+Comparison: 
+FastEnum.with_index/2                 2.19 M
+FastEnum.with_index_body_rec/2        1.27 M - 1.73x slower +331.03 ns
+Enum.with_index/2                     0.80 M - 2.73x slower +788.79 ns
+
+Memory usage statistics:
+
+Name                              Memory usage
+FastEnum.with_index/2                  5.47 KB
+FastEnum.with_index_body_rec/2         3.91 KB - 0.71x memory usage -1.56250 KB
+Enum.with_index/2                      8.66 KB - 1.58x memory usage +3.20 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 1000 #####
+Name                                     ips        average  deviation         median         99th %
+FastEnum.with_index/2               212.12 K        4.71 μs    ±31.74%        3.80 μs        7.30 μs
+FastEnum.with_index_body_rec/2      119.18 K        8.39 μs    ±80.01%           8 μs          35 μs
+Enum.with_index/2                    73.66 K       13.58 μs    ±74.36%          12 μs          39 μs
+
+Comparison: 
+FastEnum.with_index/2               212.12 K
+FastEnum.with_index_body_rec/2      119.18 K - 1.78x slower +3.68 μs
+Enum.with_index/2                    73.66 K - 2.88x slower +8.86 μs
+
+Memory usage statistics:
+
+Name                              Memory usage
+FastEnum.with_index/2                 54.69 KB
+FastEnum.with_index_body_rec/2        39.06 KB - 0.71x memory usage -15.62500 KB
+Enum.with_index/2                     86.01 KB - 1.57x memory usage +31.32 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 10000 #####
+Name                                     ips        average  deviation         median         99th %
+FastEnum.with_index/2                15.63 K       63.99 μs    ±68.75%          39 μs         148 μs
+FastEnum.with_index_body_rec/2       11.85 K       84.42 μs     ±8.65%          90 μs          95 μs
+Enum.with_index/2                     7.39 K      135.29 μs     ±4.21%         135 μs         152 μs
+
+Comparison: 
+FastEnum.with_index/2                15.63 K
+FastEnum.with_index_body_rec/2       11.85 K - 1.32x slower +20.43 μs
+Enum.with_index/2                     7.39 K - 2.11x slower +71.31 μs
+
+Memory usage statistics:
+
+Name                              Memory usage
+FastEnum.with_index/2                430.34 KB
+FastEnum.with_index_body_rec/2       390.63 KB - 0.91x memory usage -39.71875 KB
+Enum.with_index/2                    859.45 KB - 2.00x memory usage +429.10 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 100000 #####
+Name                                     ips        average  deviation         median         99th %
+FastEnum.with_index_body_rec/2        1.20 K      834.26 μs    ±18.92%         824 μs         908 μs
+FastEnum.with_index/2                 1.07 K      936.26 μs    ±11.04%         921 μs     1611.61 μs
+Enum.with_index/2                     0.36 K     2797.28 μs    ±25.22%        2528 μs     4802.04 μs
+
+Comparison: 
+FastEnum.with_index_body_rec/2        1.20 K
+FastEnum.with_index/2                 1.07 K - 1.12x slower +102.01 μs
+Enum.with_index/2                     0.36 K - 3.35x slower +1963.02 μs
+
+Memory usage statistics:
+
+Name                              Memory usage
+FastEnum.with_index_body_rec/2         3.81 MB
+FastEnum.with_index/2                  4.83 MB - 1.27x memory usage +1.01 MB
+Enum.with_index/2                      8.39 MB - 2.20x memory usage +4.58 MB
+
+**All measurements for memory usage were the same**
