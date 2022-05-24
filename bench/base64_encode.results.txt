@@ -1,0 +1,92 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.13.4
+Erlang 25.0
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 1 s
+reduction time: 0 ns
+parallel: 1
+inputs: 32, 128, 512, 1024
+Estimated total run time: 1.07 min
+
+Benchmarking :base64.encode/1 with input 32 ...
+Benchmarking :base64.encode/1 with input 128 ...
+Benchmarking :base64.encode/1 with input 512 ...
+Benchmarking :base64.encode/1 with input 1024 ...
+Benchmarking Base.encode64/1 with input 32 ...
+Benchmarking Base.encode64/1 with input 128 ...
+Benchmarking Base.encode64/1 with input 512 ...
+Benchmarking Base.encode64/1 with input 1024 ...
+
+##### With input 32 #####
+Name                       ips        average  deviation         median         99th %
+:base64.encode/1        2.09 M      479.08 ns  ±4806.31%         375 ns         584 ns
+Base.encode64/1         1.49 M      669.73 ns  ±3224.14%         583 ns         833 ns
+
+Comparison: 
+:base64.encode/1        2.09 M
+Base.encode64/1         1.49 M - 1.40x slower +190.65 ns
+
+Memory usage statistics:
+
+Name                Memory usage
+:base64.encode/1           528 B
+Base.encode64/1            280 B - 0.53x memory usage -248 B
+
+**All measurements for memory usage were the same**
+
+##### With input 128 #####
+Name                       ips        average  deviation         median         99th %
+:base64.encode/1      648.99 K        1.54 μs  ±1701.87%        1.33 μs        1.71 μs
+Base.encode64/1       506.64 K        1.97 μs  ±1116.14%        1.71 μs        3.33 μs
+
+Comparison: 
+:base64.encode/1      648.99 K
+Base.encode64/1       506.64 K - 1.28x slower +0.43 μs
+
+Memory usage statistics:
+
+Name                Memory usage
+:base64.encode/1         1.77 KB
+Base.encode64/1          0.27 KB - 0.15x memory usage -1.50000 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 512 #####
+Name                       ips        average  deviation         median         99th %
+:base64.encode/1      168.34 K        5.94 μs   ±879.15%        5.21 μs       15.33 μs
+Base.encode64/1       155.69 K        6.42 μs   ±301.66%        6.25 μs        7.29 μs
+
+Comparison: 
+:base64.encode/1      168.34 K
+Base.encode64/1       155.69 K - 1.08x slower +0.48 μs
+
+Memory usage statistics:
+
+Name                Memory usage
+:base64.encode/1         6.77 KB
+Base.encode64/1          0.27 KB - 0.04x memory usage -6.50000 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 1024 #####
+Name                       ips        average  deviation         median         99th %
+:base64.encode/1       93.89 K       10.65 μs   ±256.08%       10.38 μs       13.21 μs
+Base.encode64/1        77.76 K       12.86 μs    ±78.03%       12.75 μs       14.38 μs
+
+Comparison: 
+:base64.encode/1       93.89 K
+Base.encode64/1        77.76 K - 1.21x slower +2.21 μs
+
+Memory usage statistics:
+
+Name                Memory usage
+:base64.encode/1        13.45 KB
+Base.encode64/1          0.27 KB - 0.02x memory usage -13.17969 KB
+
+**All measurements for memory usage were the same**

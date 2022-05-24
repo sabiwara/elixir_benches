@@ -1,0 +1,92 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.13.4
+Erlang 25.0
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 1 s
+reduction time: 0 ns
+parallel: 1
+inputs: 32, 128, 512, 1024
+Estimated total run time: 1.07 min
+
+Benchmarking :base64.decode/1 with input 32 ...
+Benchmarking :base64.decode/1 with input 128 ...
+Benchmarking :base64.decode/1 with input 512 ...
+Benchmarking :base64.decode/1 with input 1024 ...
+Benchmarking Base.decode64/1 with input 32 ...
+Benchmarking Base.decode64/1 with input 128 ...
+Benchmarking Base.decode64/1 with input 512 ...
+Benchmarking Base.decode64/1 with input 1024 ...
+
+##### With input 32 #####
+Name                       ips        average  deviation         median         99th %
+:base64.decode/1        1.73 M      579.29 ns  ±4016.41%         500 ns         708 ns
+Base.decode64/1         1.23 M      811.78 ns  ±3254.76%         667 ns         917 ns
+
+Comparison: 
+:base64.decode/1        1.73 M
+Base.decode64/1         1.23 M - 1.40x slower +232.49 ns
+
+Memory usage statistics:
+
+Name                Memory usage
+:base64.decode/1           528 B
+Base.decode64/1            288 B - 0.55x memory usage -240 B
+
+**All measurements for memory usage were the same**
+
+##### With input 128 #####
+Name                       ips        average  deviation         median         99th %
+:base64.decode/1      505.82 K        1.98 μs  ±1726.56%        1.71 μs        2.88 μs
+Base.decode64/1       415.89 K        2.40 μs   ±679.00%        2.29 μs        3.04 μs
+
+Comparison: 
+:base64.decode/1      505.82 K
+Base.decode64/1       415.89 K - 1.22x slower +0.43 μs
+
+Memory usage statistics:
+
+Name                Memory usage
+:base64.decode/1         1.77 KB
+Base.decode64/1          0.27 KB - 0.15x memory usage -1.50000 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 512 #####
+Name                       ips        average  deviation         median         99th %
+:base64.decode/1      135.82 K        7.36 μs   ±743.37%        6.58 μs       10.71 μs
+Base.decode64/1       114.53 K        8.73 μs    ±58.92%        8.63 μs       10.08 μs
+
+Comparison: 
+:base64.decode/1      135.82 K
+Base.decode64/1       114.53 K - 1.19x slower +1.37 μs
+
+Memory usage statistics:
+
+Name                Memory usage
+:base64.decode/1         6.77 KB
+Base.decode64/1          0.27 KB - 0.04x memory usage -6.50000 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 1024 #####
+Name                       ips        average  deviation         median         99th %
+:base64.decode/1       75.81 K       13.19 μs    ±28.07%       13.08 μs       15.04 μs
+Base.decode64/1        57.22 K       17.48 μs    ±20.20%       17.29 μs       19.38 μs
+
+Comparison: 
+:base64.decode/1       75.81 K
+Base.decode64/1        57.22 K - 1.33x slower +4.29 μs
+
+Memory usage statistics:
+
+Name                Memory usage
+:base64.decode/1        13.45 KB
+Base.decode64/1          0.27 KB - 0.02x memory usage -13.17969 KB
+
+**All measurements for memory usage were the same**
