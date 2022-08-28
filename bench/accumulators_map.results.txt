@@ -1,0 +1,114 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.13.4
+Erlang 25.0
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 500 ms
+reduction time: 0 ns
+parallel: 1
+inputs: 100, 1000, 10000
+Estimated total run time: 1.88 min
+
+Benchmarking Agents (agent-side) with input 100 ...
+Benchmarking Agents (agent-side) with input 1000 ...
+Benchmarking Agents (agent-side) with input 10000 ...
+Benchmarking Agents (client-side) with input 100 ...
+Benchmarking Agents (client-side) with input 1000 ...
+Benchmarking Agents (client-side) with input 10000 ...
+Benchmarking ETS with input 100 ...
+Benchmarking ETS with input 1000 ...
+Benchmarking ETS with input 10000 ...
+Benchmarking Process dict with input 100 ...
+Benchmarking Process dict with input 1000 ...
+Benchmarking Process dict with input 10000 ...
+Benchmarking reduce with input 100 ...
+Benchmarking reduce with input 1000 ...
+Benchmarking reduce with input 10000 ...
+
+##### With input 100 #####
+Name                           ips        average  deviation         median         99th %
+reduce                    185.33 K        5.40 μs    ±81.61%        5.08 μs          14 μs
+Process dict              113.45 K        8.81 μs    ±74.18%        8.29 μs       29.35 μs
+Agents (agent-side)         8.72 K      114.65 μs     ±2.04%      114.71 μs      122.86 μs
+ETS                         6.59 K      151.84 μs     ±2.81%      151.54 μs      170.10 μs
+Agents (client-side)        2.95 K      339.31 μs     ±1.93%      338.67 μs      360.54 μs
+
+Comparison: 
+reduce                    185.33 K
+Process dict              113.45 K - 1.63x slower +3.42 μs
+Agents (agent-side)         8.72 K - 21.25x slower +109.25 μs
+ETS                         6.59 K - 28.14x slower +146.45 μs
+Agents (client-side)        2.95 K - 62.88x slower +333.91 μs
+
+Memory usage statistics:
+
+Name                         average  deviation         median         99th %
+reduce                      10.04 KB     ±0.00%       10.04 KB       10.04 KB
+Process dict                26.09 KB     ±0.00%       26.09 KB       26.09 KB
+Agents (agent-side)         36.20 KB     ±0.01%       36.20 KB       36.20 KB
+ETS                        146.27 KB     ±0.00%      146.27 KB      146.27 KB
+Agents (client-side)       209.66 KB     ±0.26%      209.71 KB      209.71 KB
+
+Comparison: 
+reduce                      10.04 KB
+Process dict                26.09 KB - 2.60x memory usage +16.05 KB
+Agents (agent-side)         36.20 KB - 3.61x memory usage +26.16 KB
+ETS                        146.27 KB - 14.57x memory usage +136.23 KB
+Agents (client-side)       209.66 KB - 20.88x memory usage +199.62 KB
+
+##### With input 1000 #####
+Name                           ips        average  deviation         median         99th %
+reduce                    12739.71      0.0785 ms    ±16.01%      0.0739 ms       0.110 ms
+Process dict               9484.29       0.105 ms     ±7.45%       0.105 ms       0.121 ms
+Agents (agent-side)         855.34        1.17 ms     ±1.55%        1.17 ms        1.21 ms
+ETS                          68.49       14.60 ms     ±0.69%       14.61 ms       14.88 ms
+Agents (client-side)         62.60       15.97 ms     ±1.63%       15.98 ms       17.09 ms
+
+Comparison: 
+reduce                    12739.71
+Process dict               9484.29 - 1.34x slower +0.0269 ms
+Agents (agent-side)         855.34 - 14.89x slower +1.09 ms
+ETS                          68.49 - 186.01x slower +14.52 ms
+Agents (client-side)         62.60 - 203.50x slower +15.89 ms
+
+Memory usage statistics:
+
+Name                    Memory usage
+reduce                      23.95 KB
+Process dict               311.10 KB - 12.99x memory usage +287.15 KB
+Agents (agent-side)        327.46 KB - 13.67x memory usage +303.51 KB
+ETS                      10429.98 KB - 435.43x memory usage +10406.02 KB
+Agents (client-side)     11074.95 KB - 462.36x memory usage +11051 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 10000 #####
+Name                           ips        average  deviation         median         99th %
+reduce                      623.57        1.60 ms     ±6.79%        1.59 ms        2.01 ms
+Process dict                520.43        1.92 ms    ±35.62%        1.88 ms        2.41 ms
+Agents (agent-side)          78.24       12.78 ms     ±0.86%       12.72 ms       13.12 ms
+Agents (client-side)          0.50     2011.08 ms     ±0.08%     2011.79 ms     2012.30 ms
+ETS                           0.48     2066.61 ms     ±0.36%     2070.36 ms     2071.49 ms
+
+Comparison: 
+reduce                      623.57
+Process dict                520.43 - 1.20x slower +0.32 ms
+Agents (agent-side)          78.24 - 7.97x slower +11.18 ms
+Agents (client-side)          0.50 - 1254.05x slower +2009.47 ms
+ETS                           0.48 - 1288.68x slower +2065.01 ms
+
+Memory usage statistics:
+
+Name                    Memory usage
+reduce                       1.54 MB
+Process dict                 4.07 MB - 2.64x memory usage +2.53 MB
+Agents (agent-side)          3.21 MB - 2.08x memory usage +1.67 MB
+Agents (client-side)      1008.35 MB - 655.37x memory usage +1006.81 MB
+ETS                       1002.37 MB - 651.48x memory usage +1000.83 MB
+
+**All measurements for memory usage were the same**
