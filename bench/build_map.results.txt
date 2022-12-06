@@ -1,0 +1,56 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.14.2
+Erlang 25.0
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 1 s
+reduction time: 1 s
+parallel: 1
+inputs: none specified
+Estimated total run time: 36 s
+
+Benchmarking direct ...
+Benchmarking into ...
+Benchmarking with_reverse ...
+Benchmarking without_reverse ...
+
+Name                      ips        average  deviation         median         99th %
+without_reverse      183.04 K        5.46 μs   ±363.54%        5.04 μs       10.21 μs
+direct               176.43 K        5.67 μs   ±350.32%        5.21 μs       14.13 μs
+with_reverse         162.08 K        6.17 μs  ±1142.04%        5.17 μs       15.21 μs
+into                 147.06 K        6.80 μs   ±411.21%        6.08 μs       23.17 μs
+
+Comparison: 
+without_reverse      183.04 K
+direct               176.43 K - 1.04x slower +0.20 μs
+with_reverse         162.08 K - 1.13x slower +0.71 μs
+into                 147.06 K - 1.24x slower +1.34 μs
+
+Memory usage statistics:
+
+Name               Memory usage
+without_reverse         4.56 KB
+direct                  9.88 KB - 2.17x memory usage +5.32 KB
+with_reverse            7.41 KB - 1.63x memory usage +2.85 KB
+into                   30.52 KB - 6.69x memory usage +25.96 KB
+
+**All measurements for memory usage were the same**
+
+Reduction count statistics:
+
+Name                    average  deviation         median         99th %
+without_reverse             498     ±0.00%            498            498
+direct                      342     ±0.00%            342            342
+with_reverse             515.23     ±0.08%            515            516
+into                        845     ±0.00%            845            845
+
+Comparison: 
+without_reverse             498
+direct                      342 - 0.69x reduction count -156
+with_reverse             515.23 - 1.03x reduction count +17.23
+into                        845 - 1.70x reduction count +347
