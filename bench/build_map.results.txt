@@ -12,45 +12,51 @@ memory time: 1 s
 reduction time: 1 s
 parallel: 1
 inputs: none specified
-Estimated total run time: 36 s
+Estimated total run time: 45 s
 
 Benchmarking direct ...
 Benchmarking into ...
+Benchmarking with_map ...
 Benchmarking with_reverse ...
 Benchmarking without_reverse ...
 
 Name                      ips        average  deviation         median         99th %
-without_reverse      183.04 K        5.46 μs   ±363.54%        5.04 μs       10.21 μs
-direct               176.43 K        5.67 μs   ±350.32%        5.21 μs       14.13 μs
-with_reverse         162.08 K        6.17 μs  ±1142.04%        5.17 μs       15.21 μs
-into                 147.06 K        6.80 μs   ±411.21%        6.08 μs       23.17 μs
+without_reverse      136.07 K        7.35 μs   ±535.90%        6.13 μs       19.25 μs
+direct               135.61 K        7.37 μs    ±93.79%        6.58 μs       19.32 μs
+into                 119.66 K        8.36 μs   ±605.28%        7.17 μs       17.88 μs
+with_reverse         116.04 K        8.62 μs   ±930.58%        6.58 μs       26.25 μs
+with_map             111.77 K        8.95 μs   ±778.59%        7.17 μs       23.58 μs
 
 Comparison: 
-without_reverse      183.04 K
-direct               176.43 K - 1.04x slower +0.20 μs
-with_reverse         162.08 K - 1.13x slower +0.71 μs
-into                 147.06 K - 1.24x slower +1.34 μs
+without_reverse      136.07 K
+direct               135.61 K - 1.00x slower +0.0250 μs
+into                 119.66 K - 1.14x slower +1.01 μs
+with_reverse         116.04 K - 1.17x slower +1.27 μs
+with_map             111.77 K - 1.22x slower +1.60 μs
 
 Memory usage statistics:
 
 Name               Memory usage
-without_reverse         4.56 KB
-direct                  9.88 KB - 2.17x memory usage +5.32 KB
-with_reverse            7.41 KB - 1.63x memory usage +2.85 KB
-into                   30.52 KB - 6.69x memory usage +25.96 KB
+without_reverse         5.53 KB
+direct                 10.04 KB - 1.81x memory usage +4.51 KB
+into                    4.48 KB - 0.81x memory usage -1.04688 KB
+with_reverse            5.53 KB - 1.00x memory usage +0 KB
+with_map                4.48 KB - 0.81x memory usage -1.04688 KB
 
 **All measurements for memory usage were the same**
 
 Reduction count statistics:
 
 Name                    average  deviation         median         99th %
-without_reverse             498     ±0.00%            498            498
-direct                      342     ±0.00%            342            342
-with_reverse             515.23     ±0.08%            515            516
-into                        845     ±0.00%            845            845
+without_reverse          537.56     ±0.17%            537            539
+direct                      374     ±0.00%            374            374
+into                     591.75     ±0.07%            592            592
+with_reverse             541.90     ±0.05%            542            542
+with_map                 590.70     ±0.08%            591            591
 
 Comparison: 
-without_reverse             498
-direct                      342 - 0.69x reduction count -156
-with_reverse             515.23 - 1.03x reduction count +17.23
-into                        845 - 1.70x reduction count +347
+without_reverse             537
+direct                      374 - 0.70x reduction count -163.56483
+into                     591.75 - 1.10x reduction count +54.19
+with_reverse             541.90 - 1.01x reduction count +4.34
+with_map                 590.70 - 1.10x reduction count +53.14

@@ -1,4 +1,4 @@
-range = 1..100
+list = Enum.to_list(1..100)
 
 defmodule Bench do
   def with_reverse(enum) do
@@ -9,6 +9,11 @@ defmodule Bench do
 
   def without_reverse(enum) do
     Enum.reduce(enum, [], fn x, acc -> [{x, x} | acc] end)
+    |> :maps.from_list()
+  end
+
+  def with_map(enum) do
+    Enum.map(enum, fn x -> {x, x} end)
     |> :maps.from_list()
   end
 
@@ -23,10 +28,11 @@ end
 
 Benchee.run(
   %{
-    "with_reverse" => fn -> Bench.with_reverse(range) end,
-    "without_reverse" => fn -> Bench.without_reverse(range) end,
-    "into" => fn -> Bench.into(range) end,
-    "direct" => fn -> Bench.direct(range) end
+    "with_reverse" => fn -> Bench.with_reverse(list) end,
+    "with_map" => fn -> Bench.with_map(list) end,
+    "without_reverse" => fn -> Bench.without_reverse(list) end,
+    "into" => fn -> Bench.into(list) end,
+    "direct" => fn -> Bench.direct(list) end
   },
   memory_time: 1,
   reduction_time: 1
