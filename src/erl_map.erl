@@ -1,13 +1,14 @@
 -module(erl_map).
 -export([comprehension/1, anonymous/1, comprehension_case/1, anonymous_case/1]).
 
-comprehension(List) -> [X + 1 || X <- List].
+comprehension(List) ->
+  [(fun (Y) -> Y + 1 end)(X) || X <- List].
 
 anonymous(List) ->
   (fun Rec([]) ->
       [];
     Rec([H | T]) ->
-      [H + 1 | Rec(T)]
+      [(fun (Y) -> Y + 1 end)(H) | Rec(T)]
   end)(List).
 
 comprehension_case(Enum) ->

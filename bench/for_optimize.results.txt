@@ -8,11 +8,11 @@ Erlang 25.0
 Benchmark suite executing with the following configuration:
 warmup: 2 s
 time: 5 s
-memory time: 1 s
+memory time: 0 ns
 reduction time: 0 ns
 parallel: 1
 inputs: none specified
-Estimated total run time: 48 s
+Estimated total run time: 42 s
 
 Benchmarking Enum.map ...
 Benchmarking erlang comprehension ...
@@ -22,29 +22,17 @@ Benchmarking maybe recursive anonymous ...
 Benchmarking recursive anonymous ...
 
 Name                                 ips        average  deviation         median         99th %
-recursive anonymous            1152.65 K        0.87 μs  ±2212.63%        0.79 μs        0.96 μs
-erlang comprehension           1105.23 K        0.90 μs  ±2358.61%        0.79 μs        1.21 μs
-Enum.map                        963.73 K        1.04 μs  ±1617.80%        0.92 μs        1.21 μs
-maybe recursive anonymous       872.18 K        1.15 μs  ±1294.25%        1.08 μs        1.29 μs
-inlined :lists.map              868.16 K        1.15 μs  ±1301.75%        1.08 μs        1.29 μs
-maybe erlang comprehension      867.64 K        1.15 μs  ±1363.60%        1.08 μs        1.29 μs
+erlang comprehension           1131.11 K        0.88 μs  ±2439.46%        0.83 μs        1.04 μs
+recursive anonymous            1126.18 K        0.89 μs  ±2563.70%        0.83 μs        1.25 μs
+maybe recursive anonymous       942.28 K        1.06 μs  ±1610.76%           1 μs        1.21 μs
+inlined :lists.map              937.57 K        1.07 μs  ±1567.83%           1 μs        1.21 μs
+Enum.map                        934.34 K        1.07 μs  ±1539.39%        0.92 μs        1.58 μs
+maybe erlang comprehension      908.63 K        1.10 μs  ±1589.36%           1 μs        1.38 μs
 
 Comparison: 
-recursive anonymous            1152.65 K
-erlang comprehension           1105.23 K - 1.04x slower +0.0372 μs
-Enum.map                        963.73 K - 1.20x slower +0.170 μs
-maybe recursive anonymous       872.18 K - 1.32x slower +0.28 μs
-inlined :lists.map              868.16 K - 1.33x slower +0.28 μs
-maybe erlang comprehension      867.64 K - 1.33x slower +0.28 μs
-
-Memory usage statistics:
-
-Name                          Memory usage
-recursive anonymous                1.56 KB
-erlang comprehension               1.56 KB - 1.00x memory usage +0 KB
-Enum.map                           1.60 KB - 1.02x memory usage +0.0391 KB
-maybe recursive anonymous          1.60 KB - 1.02x memory usage +0.0391 KB
-inlined :lists.map                 1.60 KB - 1.02x memory usage +0.0391 KB
-maybe erlang comprehension         1.60 KB - 1.02x memory usage +0.0391 KB
-
-**All measurements for memory usage were the same**
+erlang comprehension           1131.11 K
+recursive anonymous            1126.18 K - 1.00x slower +0.00387 μs
+maybe recursive anonymous       942.28 K - 1.20x slower +0.177 μs
+inlined :lists.map              937.57 K - 1.21x slower +0.183 μs
+Enum.map                        934.34 K - 1.21x slower +0.186 μs
+maybe erlang comprehension      908.63 K - 1.24x slower +0.22 μs
