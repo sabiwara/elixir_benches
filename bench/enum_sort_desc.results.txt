@@ -1,0 +1,73 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.14.2
+Erlang 25.0
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 500 ms
+reduction time: 0 ns
+parallel: 1
+inputs: 100, 10000, 1000000
+Estimated total run time: 45 s
+
+Benchmarking |> :lists.sort |> :lists.reverse with input 100 ...
+Benchmarking |> :lists.sort |> :lists.reverse with input 10000 ...
+Benchmarking |> :lists.sort |> :lists.reverse with input 1000000 ...
+Benchmarking |> Enum.sort(:desc) with input 100 ...
+Benchmarking |> Enum.sort(:desc) with input 10000 ...
+Benchmarking |> Enum.sort(:desc) with input 1000000 ...
+
+##### With input 100 #####
+Name                                       ips        average  deviation         median         99th %
+|> :lists.sort |> :lists.reverse      792.43 K        1.26 μs   ±991.62%        1.08 μs        2.63 μs
+|> Enum.sort(:desc)                   170.28 K        5.87 μs   ±170.49%        5.58 μs       11.29 μs
+
+Comparison: 
+|> :lists.sort |> :lists.reverse      792.43 K
+|> Enum.sort(:desc)                   170.28 K - 4.65x slower +4.61 μs
+
+Memory usage statistics:
+
+Name                                Memory usage
+|> :lists.sort |> :lists.reverse         7.92 KB
+|> Enum.sort(:desc)                     11.22 KB - 1.42x memory usage +3.30 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 10000 #####
+Name                                       ips        average  deviation         median         99th %
+|> :lists.sort |> :lists.reverse        2.10 K        0.48 ms    ±25.74%        0.45 ms        0.56 ms
+|> Enum.sort(:desc)                     0.71 K        1.42 ms     ±8.96%        1.40 ms        1.62 ms
+
+Comparison: 
+|> :lists.sort |> :lists.reverse        2.10 K
+|> Enum.sort(:desc)                     0.71 K - 2.97x slower +0.94 ms
+
+Memory usage statistics:
+
+Name                                Memory usage
+|> :lists.sort |> :lists.reverse         1.42 MB
+|> Enum.sort(:desc)                      2.05 MB - 1.44x memory usage +0.63 MB
+
+**All measurements for memory usage were the same**
+
+##### With input 1000000 #####
+Name                                       ips        average  deviation         median         99th %
+|> :lists.sort |> :lists.reverse          8.24      121.37 ms    ±10.69%      117.51 ms      161.29 ms
+|> Enum.sort(:desc)                       3.51      284.68 ms     ±7.26%      285.48 ms      333.88 ms
+
+Comparison: 
+|> :lists.sort |> :lists.reverse          8.24
+|> Enum.sort(:desc)                       3.51 - 2.35x slower +163.31 ms
+
+Memory usage statistics:
+
+Name                                Memory usage
+|> :lists.sort |> :lists.reverse       233.60 MB
+|> Enum.sort(:desc)                    296.21 MB - 1.27x memory usage +62.61 MB
+
+**All measurements for memory usage were the same**
