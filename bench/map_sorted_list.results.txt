@@ -1,0 +1,73 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.14.2
+Erlang 26.0-rc1
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 500 ms
+reduction time: 0 ns
+parallel: 1
+inputs: 10, 100, 1000
+Estimated total run time: 45 s
+
+Benchmarking Map.to_list |> :lists.sort with input 10 ...
+Benchmarking Map.to_list |> :lists.sort with input 100 ...
+Benchmarking Map.to_list |> :lists.sort with input 1000 ...
+Benchmarking iterator with input 10 ...
+Benchmarking iterator with input 100 ...
+Benchmarking iterator with input 1000 ...
+
+##### With input 10 #####
+Name                                 ips        average  deviation         median         99th %
+Map.to_list |> :lists.sort        4.26 M      234.94 ns ±11321.61%         166 ns        1042 ns
+iterator                          2.83 M      353.57 ns ±11314.53%         250 ns         417 ns
+
+Comparison: 
+Map.to_list |> :lists.sort        4.26 M
+iterator                          2.83 M - 1.50x slower +118.63 ns
+
+Memory usage statistics:
+
+Name                          Memory usage
+Map.to_list |> :lists.sort         0.73 KB
+iterator                           1.10 KB - 1.50x memory usage +0.37 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 100 #####
+Name                                 ips        average  deviation         median         99th %
+Map.to_list |> :lists.sort      122.01 K        8.20 μs   ±140.92%        7.75 μs       21.42 μs
+iterator                        109.74 K        9.11 μs    ±64.98%        7.54 μs       16.25 μs
+
+Comparison: 
+Map.to_list |> :lists.sort      122.01 K
+iterator                        109.74 K - 1.11x slower +0.92 μs
+
+Memory usage statistics:
+
+Name                          Memory usage
+Map.to_list |> :lists.sort         9.66 KB
+iterator                          19.21 KB - 1.99x memory usage +9.55 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 1000 #####
+Name                                 ips        average  deviation         median         99th %
+iterator                          8.02 K      124.67 μs     ±3.67%      123.21 μs      137.21 μs
+Map.to_list |> :lists.sort        7.83 K      127.68 μs     ±8.07%      127.50 μs      141.34 μs
+
+Comparison: 
+iterator                          8.02 K
+Map.to_list |> :lists.sort        7.83 K - 1.02x slower +3.01 μs
+
+Memory usage statistics:
+
+Name                          Memory usage
+iterator                         229.68 KB
+Map.to_list |> :lists.sort       115.68 KB - 0.50x memory usage -114 KB
+
+**All measurements for memory usage were the same**
