@@ -1,0 +1,151 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.14.4
+Erlang 25.0
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 2 s
+memory time: 500 ms
+reduction time: 0 ns
+parallel: 1
+inputs: 10, 100, 1000, 10000, 100000
+Estimated total run time: 1.50 min
+
+Benchmarking Enum (reverse) with input 10 ...
+Benchmarking Enum (reverse) with input 100 ...
+Benchmarking Enum (reverse) with input 1000 ...
+Benchmarking Enum (reverse) with input 10000 ...
+Benchmarking Enum (reverse) with input 100000 ...
+Benchmarking Enum (sum) with input 10 ...
+Benchmarking Enum (sum) with input 100 ...
+Benchmarking Enum (sum) with input 1000 ...
+Benchmarking Enum (sum) with input 10000 ...
+Benchmarking Enum (sum) with input 100000 ...
+Benchmarking optimized (reverse) with input 10 ...
+Benchmarking optimized (reverse) with input 100 ...
+Benchmarking optimized (reverse) with input 1000 ...
+Benchmarking optimized (reverse) with input 10000 ...
+Benchmarking optimized (reverse) with input 100000 ...
+Benchmarking optimized (sum) with input 10 ...
+Benchmarking optimized (sum) with input 100 ...
+Benchmarking optimized (sum) with input 1000 ...
+Benchmarking optimized (sum) with input 10000 ...
+Benchmarking optimized (sum) with input 100000 ...
+
+##### With input 10 #####
+Name                          ips        average  deviation         median         99th %
+optimized (reverse)        5.68 M      176.03 ns ±13568.22%         125 ns         250 ns
+Enum (reverse)             5.50 M      181.81 ns  ±5780.30%         125 ns         292 ns
+optimized (sum)            5.45 M      183.56 ns ±12090.34%         125 ns         250 ns
+Enum (sum)                 4.27 M      234.21 ns  ±7689.60%         208 ns         333 ns
+
+Comparison: 
+optimized (reverse)        5.68 M
+Enum (reverse)             5.50 M - 1.03x slower +5.79 ns
+optimized (sum)            5.45 M - 1.04x slower +7.53 ns
+Enum (sum)                 4.27 M - 1.33x slower +58.18 ns
+
+Memory usage statistics:
+
+Name                   Memory usage
+optimized (reverse)           536 B
+Enum (reverse)                696 B - 1.30x memory usage +160 B
+optimized (sum)               336 B - 0.63x memory usage -200 B
+Enum (sum)                    496 B - 0.93x memory usage -40 B
+
+**All measurements for memory usage were the same**
+
+##### With input 100 #####
+Name                          ips        average  deviation         median         99th %
+optimized (reverse)      680.04 K        1.47 μs   ±529.04%        1.38 μs        2.54 μs
+Enum (reverse)           642.06 K        1.56 μs   ±458.58%        1.46 μs        2.38 μs
+optimized (sum)          552.96 K        1.81 μs   ±597.84%        1.67 μs        2.79 μs
+Enum (sum)               475.54 K        2.10 μs   ±485.19%        1.96 μs        5.04 μs
+
+Comparison: 
+optimized (reverse)      680.04 K
+Enum (reverse)           642.06 K - 1.06x slower +0.0870 μs
+optimized (sum)          552.96 K - 1.23x slower +0.34 μs
+Enum (sum)               475.54 K - 1.43x slower +0.63 μs
+
+Memory usage statistics:
+
+Name                   Memory usage
+optimized (reverse)         2.63 KB
+Enum (reverse)              4.04 KB - 1.53x memory usage +1.41 KB
+optimized (sum)             1.03 KB - 0.39x memory usage -1.60156 KB
+Enum (sum)                  2.44 KB - 0.93x memory usage -0.19531 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 1000 #####
+Name                          ips        average  deviation         median         99th %
+optimized (reverse)       67.55 K       14.80 μs    ±62.42%       13.58 μs       47.42 μs
+Enum (reverse)            62.30 K       16.05 μs    ±52.09%       14.25 μs       50.67 μs
+optimized (sum)           55.05 K       18.17 μs    ±64.13%       16.92 μs       52.42 μs
+Enum (sum)                48.48 K       20.63 μs    ±47.95%       19.21 μs       56.83 μs
+
+Comparison: 
+optimized (reverse)       67.55 K
+Enum (reverse)            62.30 K - 1.08x slower +1.25 μs
+optimized (sum)           55.05 K - 1.23x slower +3.36 μs
+Enum (sum)                48.48 K - 1.39x slower +5.82 μs
+
+Memory usage statistics:
+
+Name                   Memory usage
+optimized (reverse)        18.09 KB
+Enum (reverse)             39.20 KB - 2.17x memory usage +21.11 KB
+optimized (sum)             1.92 KB - 0.11x memory usage -16.16406 KB
+Enum (sum)                 23.53 KB - 1.30x memory usage +5.45 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 10000 #####
+Name                          ips        average  deviation         median         99th %
+optimized (reverse)        6.10 K      163.86 μs    ±21.37%      148.38 μs      245.38 μs
+optimized (sum)            5.18 K      193.04 μs    ±24.07%      181.33 μs      272.01 μs
+Enum (reverse)             5.01 K      199.68 μs    ±19.08%      179.17 μs      286.52 μs
+Enum (sum)                 4.22 K      236.93 μs    ±13.82%      224.63 μs      330.77 μs
+
+Comparison: 
+optimized (reverse)        6.10 K
+optimized (sum)            5.18 K - 1.18x slower +29.18 μs
+Enum (reverse)             5.01 K - 1.22x slower +35.82 μs
+Enum (sum)                 4.22 K - 1.45x slower +73.07 μs
+
+Memory usage statistics:
+
+Name                   Memory usage
+optimized (reverse)       381.60 KB
+optimized (sum)           279.98 KB - 0.73x memory usage -101.61719 KB
+Enum (reverse)            390.76 KB - 1.02x memory usage +9.16 KB
+Enum (sum)                234.47 KB - 0.61x memory usage -147.13281 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 100000 #####
+Name                          ips        average  deviation         median         99th %
+optimized (reverse)        495.70        2.02 ms    ±14.11%        1.98 ms        2.70 ms
+optimized (sum)            462.62        2.16 ms     ±6.94%        2.14 ms        2.78 ms
+Enum (reverse)             453.72        2.20 ms     ±6.80%        2.16 ms        2.35 ms
+Enum (sum)                 391.11        2.56 ms     ±7.12%        2.55 ms        2.76 ms
+
+Comparison: 
+optimized (reverse)        495.70
+optimized (sum)            462.62 - 1.07x slower +0.144 ms
+Enum (reverse)             453.72 - 1.09x slower +0.187 ms
+Enum (sum)                 391.11 - 1.27x slower +0.54 ms
+
+Memory usage statistics:
+
+Name                   Memory usage
+optimized (reverse)         4.53 MB
+optimized (sum)             3.02 MB - 0.67x memory usage -1.50767 MB
+Enum (reverse)              3.81 MB - 0.84x memory usage -0.71235 MB
+Enum (sum)                  2.29 MB - 0.51x memory usage -2.23827 MB
+
+**All measurements for memory usage were the same**
