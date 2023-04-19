@@ -1,0 +1,52 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.14.4
+Erlang 26.0-rc2
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 1 s
+reduction time: 1 s
+parallel: 1
+inputs: none specified
+Estimated total run time: 36 s
+
+Benchmarking Enum ...
+Benchmarking Enum sep ...
+Benchmarking new ...
+Benchmarking new sep ...
+
+Name               ips        average  deviation         median         99th %
+new          1059.88 K        0.94 μs    ±60.25%        0.92 μs        1.04 μs
+Enum          598.95 K        1.67 μs  ±1035.58%        1.54 μs        2.50 μs
+new sep       571.70 K        1.75 μs   ±801.38%        1.63 μs        2.88 μs
+Enum sep      515.93 K        1.94 μs   ±492.37%        1.79 μs        3.63 μs
+
+Comparison: 
+new          1059.88 K
+Enum          598.95 K - 1.77x slower +0.73 μs
+new sep       571.70 K - 1.85x slower +0.81 μs
+Enum sep      515.93 K - 2.05x slower +0.99 μs
+
+Memory usage statistics:
+
+Name        Memory usage
+new            0.0859 KB
+Enum             1.61 KB - 18.73x memory usage +1.52 KB
+new sep          3.91 KB - 45.55x memory usage +3.83 KB
+Enum sep         4.66 KB - 54.18x memory usage +4.57 KB
+
+**All measurements for memory usage were the same**
+
+Reduction count statistics:
+
+Name     Reduction count
+new                  102
+Enum                 604 - 5.92x reduction count +502
+new sep              168 - 1.65x reduction count +66
+Enum sep             308 - 3.02x reduction count +206
+
+**All measurements for reduction count were the same**
