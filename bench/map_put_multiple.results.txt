@@ -1,0 +1,38 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.14.4
+Erlang 26.0
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 500 ms
+reduction time: 0 ns
+parallel: 1
+inputs: none specified
+Estimated total run time: 22.50 s
+
+Benchmarking Map.merge/2 ...
+Benchmarking erlang => syntax ...
+Benchmarking multiple Map.put/3 ...
+
+Name                         ips        average  deviation         median         99th %
+multiple Map.put/3        5.23 M      191.05 ns   ±113.61%         167 ns        1250 ns
+erlang => syntax          5.23 M      191.08 ns   ±112.85%         167 ns        1250 ns
+Map.merge/2               5.23 M      191.33 ns   ±131.32%         167 ns        1291 ns
+
+Comparison: 
+multiple Map.put/3        5.23 M
+erlang => syntax          5.23 M - 1.00x slower +0.0291 ns
+Map.merge/2               5.23 M - 1.00x slower +0.27 ns
+
+Memory usage statistics:
+
+Name                  Memory usage
+multiple Map.put/3           160 B
+erlang => syntax             160 B - 1.00x memory usage +0 B
+Map.merge/2                  160 B - 1.00x memory usage +0 B
+
+**All measurements for memory usage were the same**
