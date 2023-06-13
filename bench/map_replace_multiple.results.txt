@@ -1,0 +1,42 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.14.4
+Erlang 26.0
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 500 ms
+reduction time: 0 ns
+parallel: 1
+inputs: none specified
+Estimated total run time: 30 s
+
+Benchmarking Map.merge/2 ...
+Benchmarking elixir struct update syntax ...
+Benchmarking erlang := syntax ...
+Benchmarking multiple Map.replace!/3 ...
+
+Name                                  ips        average  deviation         median         99th %
+Map.merge/2                        5.02 M      199.04 ns   ±142.74%         167 ns        1208 ns
+erlang := syntax                   5.02 M      199.31 ns    ±88.06%         167 ns        1208 ns
+elixir struct update syntax        5.01 M      199.56 ns    ±88.70%         167 ns        1208 ns
+multiple Map.replace!/3            4.10 M      244.19 ns ±11967.63%         208 ns         250 ns
+
+Comparison: 
+Map.merge/2                        5.02 M
+erlang := syntax                   5.02 M - 1.00x slower +0.27 ns
+elixir struct update syntax        5.01 M - 1.00x slower +0.51 ns
+multiple Map.replace!/3            4.10 M - 1.23x slower +45.15 ns
+
+Memory usage statistics:
+
+Name                           Memory usage
+Map.merge/2                           960 B
+erlang := syntax                      960 B - 1.00x memory usage +0 B
+elixir struct update syntax           960 B - 1.00x memory usage +0 B
+multiple Map.replace!/3               960 B - 1.00x memory usage +0 B
+
+**All measurements for memory usage were the same**
