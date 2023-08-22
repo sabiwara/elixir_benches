@@ -1,0 +1,26 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.15.4
+Erlang 26.0.1
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 0 ns
+reduction time: 0 ns
+parallel: 1
+inputs: none specified
+Estimated total run time: 14 s
+
+Benchmarking reduce_based ...
+Benchmarking specialized ...
+
+Name                   ips        average  deviation         median         99th %
+specialized       263.96 K        3.79 μs   ±207.77%        3.75 μs        4.13 μs
+reduce_based      186.37 K        5.37 μs    ±62.82%        5.33 μs        5.58 μs
+
+Comparison: 
+specialized       263.96 K
+reduce_based      186.37 K - 1.42x slower +1.58 μs
