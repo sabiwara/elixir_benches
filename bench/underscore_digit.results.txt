@@ -1,0 +1,54 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.15.6
+Erlang 26.1.1
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 500 ms
+reduction time: 0 ns
+parallel: 1
+inputs: 7 digits, 30 digits
+Estimated total run time: 30 s
+
+Benchmarking Recursive with input 7 digits ...
+Benchmarking Recursive with input 30 digits ...
+Benchmarking Comprehension with input 7 digits ...
+Benchmarking Comprehension with input 30 digits ...
+
+##### With input 7 digits #####
+Name                    ips        average  deviation         median         99th %
+Comprehension        3.95 M      253.43 ns ±12903.32%         167 ns         292 ns
+Recursive            3.70 M      270.12 ns ±12392.13%         166 ns         292 ns
+
+Comparison: 
+Comprehension        3.95 M
+Recursive            3.70 M - 1.07x slower +16.69 ns
+
+Memory usage statistics:
+
+Name             Memory usage
+Comprehension           680 B
+Recursive               488 B - 0.72x memory usage -192 B
+
+**All measurements for memory usage were the same**
+
+##### With input 30 digits #####
+Name                    ips        average  deviation         median         99th %
+Recursive            3.00 M      333.77 ns  ±3331.98%         292 ns         458 ns
+Comprehension        1.91 M      522.30 ns  ±3697.19%         459 ns         584 ns
+
+Comparison: 
+Recursive            3.00 M
+Comprehension        1.91 M - 1.56x slower +188.53 ns
+
+Memory usage statistics:
+
+Name             Memory usage
+Recursive             0.95 KB
+Comprehension         1.95 KB - 2.06x memory usage +1 KB
+
+**All measurements for memory usage were the same**
