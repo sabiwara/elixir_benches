@@ -1,0 +1,26 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.16.0-rc.1
+Erlang 26.1.1
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 0 ns
+reduction time: 0 ns
+parallel: 1
+inputs: none specified
+Estimated total run time: 14 s
+
+Benchmarking module (optimized) ...
+Benchmarking top_level (non-optimized) ...
+
+Name                                ips        average  deviation         median         99th %
+top_level (non-optimized)        1.77 M      565.93 ns  ±3945.40%         500 ns         667 ns
+module (optimized)               1.72 M      580.88 ns  ±4537.27%         500 ns         667 ns
+
+Comparison: 
+top_level (non-optimized)        1.77 M
+module (optimized)               1.72 M - 1.03x slower +14.95 ns
