@@ -1,0 +1,61 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.16.0
+Erlang 26.2.1
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 500 ms
+reduction time: 0 ns
+parallel: 1
+inputs: none specified
+Estimated total run time: 52.50 s
+
+Benchmarking Validate (return Keyword) ...
+Benchmarking Validate (return Tuple) ...
+Benchmarking Validate (return Map) ...
+Benchmarking Validate+check unknown keys (using Map) ...
+Benchmarking Validate+check unknown & duplicate keys (using Map) ...
+Benchmarking Run stream ...
+Benchmarking Validate + Run stream (using Keyword) ...
+
+Name                                                          ips        average  deviation         median         99th %
+Validate (return Tuple)                                    6.00 M      166.78 ns ±13043.98%         125 ns         167 ns
+Validate (return Map)                                      5.67 M      176.31 ns ±14196.87%         125 ns         167 ns
+Validate+check unknown keys (using Map)                    5.34 M      187.28 ns ±13492.42%         166 ns         250 ns
+Validate+check unknown & duplicate keys (using Map)        4.78 M      209.19 ns ±14041.15%         167 ns         292 ns
+Validate (return Keyword)                                  4.54 M      220.03 ns ±16438.80%         167 ns         292 ns
+Run stream                                               0.0904 M    11067.02 ns    ±38.47%       10458 ns       17417 ns
+Validate + Run stream (using Keyword)                    0.0894 M    11180.65 ns    ±30.04%       10667 ns       17584 ns
+
+Comparison: 
+Validate (return Tuple)                                    6.00 M
+Validate (return Map)                                      5.67 M - 1.06x slower +9.53 ns
+Validate+check unknown keys (using Map)                    5.34 M - 1.12x slower +20.50 ns
+Validate+check unknown & duplicate keys (using Map)        4.78 M - 1.25x slower +42.41 ns
+Validate (return Keyword)                                  4.54 M - 1.32x slower +53.24 ns
+Run stream                                               0.0904 M - 66.36x slower +10900.24 ns
+Validate + Run stream (using Keyword)                    0.0894 M - 67.04x slower +11013.87 ns
+
+Memory usage statistics:
+
+Name                                                        average  deviation         median         99th %
+Validate (return Tuple)                                        56 B     ±0.00%           56 B           56 B
+Validate (return Map)                                          72 B     ±0.00%           72 B           72 B
+Validate+check unknown keys (using Map)                        72 B     ±0.00%           72 B           72 B
+Validate+check unknown & duplicate keys (using Map)           104 B     ±0.00%          104 B          104 B
+Validate (return Keyword)                                     288 B     ±0.00%          288 B          288 B
+Run stream                                                3252.63 B     ±1.16%         3264 B         3264 B
+Validate + Run stream (using Keyword)                     3315.66 B     ±0.71%         3320 B         3320 B
+
+Comparison: 
+Validate (return Tuple)                                        56 B
+Validate (return Map)                                          72 B - 1.29x memory usage +16 B
+Validate+check unknown keys (using Map)                        72 B - 1.29x memory usage +16 B
+Validate+check unknown & duplicate keys (using Map)           104 B - 1.86x memory usage +48 B
+Validate (return Keyword)                                     288 B - 5.14x memory usage +232 B
+Run stream                                                3252.63 B - 58.08x memory usage +3196.63 B
+Validate + Run stream (using Keyword)                     3315.66 B - 59.21x memory usage +3259.66 B
