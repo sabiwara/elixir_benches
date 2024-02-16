@@ -1,0 +1,73 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.16.1
+Erlang 27.0-rc1
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 500 ms
+reduction time: 0 ns
+parallel: 1
+inputs: 1, 10, 100
+Estimated total run time: 45 s
+
+Benchmarking :string.jaro_similarity/2 with input 1 ...
+Benchmarking :string.jaro_similarity/2 with input 10 ...
+Benchmarking :string.jaro_similarity/2 with input 100 ...
+Benchmarking String.jaro_distance/2 with input 1 ...
+Benchmarking String.jaro_distance/2 with input 10 ...
+Benchmarking String.jaro_distance/2 with input 100 ...
+
+##### With input 1 #####
+Name                                ips        average  deviation         median         99th %
+String.jaro_distance/2           1.73 M      579.08 ns  ±4275.79%         500 ns         708 ns
+:string.jaro_similarity/2        1.42 M      705.15 ns  ±2958.39%         625 ns         833 ns
+
+Comparison: 
+String.jaro_distance/2           1.73 M
+:string.jaro_similarity/2        1.42 M - 1.22x slower +126.07 ns
+
+Memory usage statistics:
+
+Name                         Memory usage
+String.jaro_distance/2            2.89 KB
+:string.jaro_similarity/2         3.16 KB - 1.09x memory usage +0.27 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 10 #####
+Name                                ips        average  deviation         median         99th %
+:string.jaro_similarity/2      116.49 K        8.58 μs    ±78.58%        8.38 μs       14.21 μs
+String.jaro_distance/2          81.41 K       12.28 μs    ±47.98%       11.92 μs       17.75 μs
+
+Comparison: 
+:string.jaro_similarity/2      116.49 K
+String.jaro_distance/2          81.41 K - 1.43x slower +3.70 μs
+
+Memory usage statistics:
+
+Name                         Memory usage
+:string.jaro_similarity/2        32.05 KB
+String.jaro_distance/2           83.73 KB - 2.61x memory usage +51.68 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 100 #####
+Name                                ips        average  deviation         median         99th %
+:string.jaro_similarity/2        5.20 K       0.192 ms    ±10.03%       0.189 ms        0.28 ms
+String.jaro_distance/2           0.96 K        1.04 ms     ±2.74%        1.05 ms        1.11 ms
+
+Comparison: 
+:string.jaro_similarity/2        5.20 K
+String.jaro_distance/2           0.96 K - 5.43x slower +0.85 ms
+
+Memory usage statistics:
+
+Name                         Memory usage
+:string.jaro_similarity/2         0.43 MB
+String.jaro_distance/2            6.00 MB - 13.82x memory usage +5.57 MB
+
+**All measurements for memory usage were the same**
