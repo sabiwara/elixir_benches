@@ -1,0 +1,62 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.16.1
+Erlang 27.0-rc1
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 1 s
+reduction time: 0 ns
+parallel: 1
+inputs: matches, doesn't
+Estimated total run time: 48 s
+
+Benchmarking :re.run/3 with input matches ...
+Benchmarking :re.run/3 with input doesn't ...
+Benchmarking Regex.run/2 with input matches ...
+Benchmarking Regex.run/2 with input doesn't ...
+Benchmarking Regex.version/0 with input matches ...
+Benchmarking Regex.version/0 with input doesn't ...
+
+##### With input matches #####
+Name                      ips        average  deviation         median         99th %
+Regex.version/0       15.14 M       66.03 ns  ±8356.75%          83 ns          84 ns
+:re.run/3              2.65 M      377.55 ns   ±348.52%         375 ns         417 ns
+Regex.run/2            2.01 M      497.64 ns  ±4222.64%         458 ns         542 ns
+
+Comparison: 
+Regex.version/0       15.14 M
+:re.run/3              2.65 M - 5.72x slower +311.52 ns
+Regex.run/2            2.01 M - 7.54x slower +431.61 ns
+
+Memory usage statistics:
+
+Name               Memory usage
+Regex.version/0            56 B
+:re.run/3                  64 B - 1.14x memory usage +8 B
+Regex.run/2               208 B - 3.71x memory usage +152 B
+
+**All measurements for memory usage were the same**
+
+##### With input doesn't #####
+Name                      ips        average  deviation         median         99th %
+Regex.version/0       15.17 M       65.92 ns  ±7632.28%          83 ns          84 ns
+:re.run/3              3.04 M      328.44 ns   ±190.70%         333 ns         375 ns
+Regex.run/2            2.21 M      452.46 ns  ±5388.20%         417 ns         500 ns
+
+Comparison: 
+Regex.version/0       15.17 M
+:re.run/3              3.04 M - 4.98x slower +262.52 ns
+Regex.run/2            2.21 M - 6.86x slower +386.55 ns
+
+Memory usage statistics:
+
+Name               Memory usage
+Regex.version/0            56 B
+:re.run/3                   0 B - 0.00x memory usage -56 B
+Regex.run/2               144 B - 2.57x memory usage +88 B
+
+**All measurements for memory usage were the same**
