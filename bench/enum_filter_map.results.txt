@@ -1,0 +1,81 @@
+[bench/enum_filter_map.exs:32: (file)]
+inputs[:"5"] #=> [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
+|> Bench.comprehension() #=> [2, 3, 4, 5, 6]
+
+[bench/enum_filter_map.exs:33: (file)]
+inputs[:"5"] #=> [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
+|> Bench.filter_map() #=> [2, 3, 4, 5, 6]
+
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.17.2
+Erlang 27.0
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 500 ms
+reduction time: 0 ns
+parallel: 1
+inputs: 5, 50, 500
+Estimated total run time: 45 s
+
+Benchmarking Enum.comprehension/2 with input 5 ...
+Benchmarking Enum.comprehension/2 with input 50 ...
+Benchmarking Enum.comprehension/2 with input 500 ...
+Benchmarking Enum.filter_map/2 with input 5 ...
+Benchmarking Enum.filter_map/2 with input 50 ...
+Benchmarking Enum.filter_map/2 with input 500 ...
+
+##### With input 5 #####
+Name                           ips        average  deviation         median         99th %
+Enum.filter_map/2          15.43 M       64.81 ns  ±6173.14%       54.20 ns       70.90 ns
+Enum.comprehension/2        8.46 M      118.22 ns ±23287.03%          83 ns         208 ns
+
+Comparison: 
+Enum.filter_map/2          15.43 M
+Enum.comprehension/2        8.46 M - 1.82x slower +53.41 ns
+
+Memory usage statistics:
+
+Name                    Memory usage
+Enum.filter_map/2              200 B
+Enum.comprehension/2           160 B - 0.80x memory usage -40 B
+
+**All measurements for memory usage were the same**
+
+##### With input 50 #####
+Name                           ips        average  deviation         median         99th %
+Enum.comprehension/2        2.15 M      466.01 ns  ±3627.29%         417 ns         583 ns
+Enum.filter_map/2           1.47 M      680.40 ns  ±2796.08%         625 ns         792 ns
+
+Comparison: 
+Enum.comprehension/2        2.15 M
+Enum.filter_map/2           1.47 M - 1.46x slower +214.39 ns
+
+Memory usage statistics:
+
+Name                    Memory usage
+Enum.comprehension/2         1.16 KB
+Enum.filter_map/2            1.95 KB - 1.69x memory usage +0.80 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 500 #####
+Name                           ips        average  deviation         median         99th %
+Enum.comprehension/2      244.74 K        4.09 μs   ±193.08%        3.96 μs        6.13 μs
+Enum.filter_map/2         151.06 K        6.62 μs   ±107.43%        6.42 μs        8.88 μs
+
+Comparison: 
+Enum.comprehension/2      244.74 K
+Enum.filter_map/2         151.06 K - 1.62x slower +2.53 μs
+
+Memory usage statistics:
+
+Name                    Memory usage
+Enum.comprehension/2        15.63 KB
+Enum.filter_map/2           19.53 KB - 1.25x memory usage +3.91 KB
+
+**All measurements for memory usage were the same**
