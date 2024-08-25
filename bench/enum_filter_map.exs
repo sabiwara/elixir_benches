@@ -9,6 +9,16 @@ defmodule Bench do
     for x <- enum, x > 0, do: x + 1
   end
 
+  def build_list(enum) do
+    build_list(enum, fn x, acc ->
+      if x > 0, do: [x + 1 | acc], else: acc
+    end)
+  end
+
+  def build_list(enum, fun) do
+    Enum.reduce(enum, [], fun) |> :lists.reverse()
+  end
+
   def filter_map(enum) do
     filter_map(enum, fn x ->
       if x > 0, do: {:ok, x + 1}, else: :error
@@ -30,11 +40,13 @@ defmodule Bench do
 end
 
 inputs[:"5"] |> Bench.comprehension() |> dbg()
+inputs[:"5"] |> Bench.build_list() |> dbg()
 inputs[:"5"] |> Bench.filter_map() |> dbg()
 
 Benchee.run(
   %{
-    "Enum.comprehension/2" => &Bench.comprehension/1,
+    "comprehension" => &Bench.comprehension/1,
+    "Enum.build_list/2" => &Bench.build_list/1,
     "Enum.filter_map/2" => &Bench.filter_map/1
   },
   memory_time: 0.5,
