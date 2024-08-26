@@ -1,14 +1,18 @@
-[bench/enum_filter_map.exs:42: (file)]
+[bench/enum_filter_map.exs:48: (file)]
 inputs[:"5"] #=> [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
 |> Bench.comprehension() #=> [2, 3, 4, 5, 6]
 
-[bench/enum_filter_map.exs:43: (file)]
+[bench/enum_filter_map.exs:49: (file)]
 inputs[:"5"] #=> [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
 |> Bench.build_list() #=> [2, 3, 4, 5, 6]
 
-[bench/enum_filter_map.exs:44: (file)]
+[bench/enum_filter_map.exs:50: (file)]
 inputs[:"5"] #=> [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
 |> Bench.filter_map() #=> [2, 3, 4, 5, 6]
+
+[bench/enum_filter_map.exs:51: (file)]
+inputs[:"5"] #=> [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
+|> Bench.flat_map() #=> [2, 3, 4, 5, 6]
 
 Operating System: macOS
 CPU Information: Apple M1
@@ -26,72 +30,72 @@ parallel: 1
 inputs: 5, 50, 500
 Estimated total run time: 1.13 min
 
-Benchmarking Enum.build_list/2 with input 5 ...
-Benchmarking Enum.build_list/2 with input 50 ...
-Benchmarking Enum.build_list/2 with input 500 ...
 Benchmarking Enum.filter_map/2 with input 5 ...
 Benchmarking Enum.filter_map/2 with input 50 ...
 Benchmarking Enum.filter_map/2 with input 500 ...
+Benchmarking Enum.flat_map/2 with input 5 ...
+Benchmarking Enum.flat_map/2 with input 50 ...
+Benchmarking Enum.flat_map/2 with input 500 ...
 Benchmarking comprehension with input 5 ...
 Benchmarking comprehension with input 50 ...
 Benchmarking comprehension with input 500 ...
 
 ##### With input 5 #####
 Name                        ips        average  deviation         median         99th %
-Enum.filter_map/2        8.81 M      113.45 ns ±30764.69%          83 ns         208 ns
-comprehension            8.60 M      116.25 ns ±23852.34%          83 ns         208 ns
-Enum.build_list/2        8.59 M      116.37 ns ±22877.29%          83 ns         208 ns
+Enum.filter_map/2        8.98 M      111.32 ns ±28754.11%          83 ns         208 ns
+comprehension            8.66 M      115.49 ns ±23711.29%          83 ns         208 ns
+Enum.flat_map/2          5.31 M      188.16 ns ±19535.98%         125 ns         250 ns
 
 Comparison: 
-Enum.filter_map/2        8.81 M
-comprehension            8.60 M - 1.02x slower +2.80 ns
-Enum.build_list/2        8.59 M - 1.03x slower +2.92 ns
+Enum.filter_map/2        8.98 M
+comprehension            8.66 M - 1.04x slower +4.17 ns
+Enum.flat_map/2          5.31 M - 1.69x slower +76.84 ns
 
 Memory usage statistics:
 
 Name                 Memory usage
 Enum.filter_map/2           200 B
 comprehension               160 B - 0.80x memory usage -40 B
-Enum.build_list/2           160 B - 0.80x memory usage -40 B
+Enum.flat_map/2             160 B - 0.80x memory usage -40 B
 
 **All measurements for memory usage were the same**
 
 ##### With input 50 #####
 Name                        ips        average  deviation         median         99th %
-comprehension            2.15 M      464.81 ns  ±3598.63%         417 ns         584 ns
-Enum.build_list/2        2.12 M      472.64 ns  ±3353.99%         417 ns         584 ns
-Enum.filter_map/2        1.48 M      676.02 ns  ±2582.32%         625 ns         791 ns
+comprehension            2.10 M      476.94 ns  ±3294.92%         417 ns         625 ns
+Enum.filter_map/2        1.47 M      680.00 ns  ±2877.90%         625 ns         792 ns
+Enum.flat_map/2          0.62 M     1615.00 ns   ±926.28%        1542 ns        1791 ns
 
 Comparison: 
-comprehension            2.15 M
-Enum.build_list/2        2.12 M - 1.02x slower +7.82 ns
-Enum.filter_map/2        1.48 M - 1.45x slower +211.21 ns
+comprehension            2.10 M
+Enum.filter_map/2        1.47 M - 1.43x slower +203.06 ns
+Enum.flat_map/2          0.62 M - 3.39x slower +1138.06 ns
 
 Memory usage statistics:
 
 Name                 Memory usage
 comprehension             1.16 KB
-Enum.build_list/2         1.16 KB - 1.00x memory usage +0 KB
 Enum.filter_map/2         1.95 KB - 1.69x memory usage +0.80 KB
+Enum.flat_map/2           1.56 KB - 1.35x memory usage +0.41 KB
 
 **All measurements for memory usage were the same**
 
 ##### With input 500 #####
 Name                        ips        average  deviation         median         99th %
-comprehension          243.01 K        4.12 μs   ±299.38%        3.92 μs        6.71 μs
-Enum.build_list/2      227.50 K        4.40 μs   ±179.13%        4.42 μs        6.13 μs
-Enum.filter_map/2      157.46 K        6.35 μs   ±104.13%        6.17 μs        9.08 μs
+comprehension          244.17 K        4.10 μs   ±195.50%        3.96 μs        6.21 μs
+Enum.filter_map/2      156.17 K        6.40 μs   ±102.74%        6.21 μs        9.04 μs
+Enum.flat_map/2         61.20 K       16.34 μs    ±13.33%       16.17 μs       18.79 μs
 
 Comparison: 
-comprehension          243.01 K
-Enum.build_list/2      227.50 K - 1.07x slower +0.28 μs
-Enum.filter_map/2      157.46 K - 1.54x slower +2.24 μs
+comprehension          244.17 K
+Enum.filter_map/2      156.17 K - 1.56x slower +2.31 μs
+Enum.flat_map/2         61.20 K - 3.99x slower +12.24 μs
 
 Memory usage statistics:
 
 Name                 Memory usage
 comprehension            15.63 KB
-Enum.build_list/2        15.63 KB - 1.00x memory usage +0 KB
 Enum.filter_map/2        19.53 KB - 1.25x memory usage +3.91 KB
+Enum.flat_map/2          15.63 KB - 1.00x memory usage +0 KB
 
 **All measurements for memory usage were the same**

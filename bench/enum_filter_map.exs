@@ -19,6 +19,12 @@ defmodule Bench do
     Enum.reduce(enum, [], fun) |> :lists.reverse()
   end
 
+  def flat_map(enum) do
+    Enum.flat_map(enum, fn x ->
+      if x > 0, do: [x + 1], else: []
+    end)
+  end
+
   def filter_map(enum) do
     filter_map(enum, fn x ->
       if x > 0, do: {:ok, x + 1}, else: :error
@@ -42,12 +48,14 @@ end
 inputs[:"5"] |> Bench.comprehension() |> dbg()
 inputs[:"5"] |> Bench.build_list() |> dbg()
 inputs[:"5"] |> Bench.filter_map() |> dbg()
+inputs[:"5"] |> Bench.flat_map() |> dbg()
 
 Benchee.run(
   %{
     "comprehension" => &Bench.comprehension/1,
-    "Enum.build_list/2" => &Bench.build_list/1,
-    "Enum.filter_map/2" => &Bench.filter_map/1
+    # "Enum.build_list/2" => &Bench.build_list/1,
+    "Enum.filter_map/2" => &Bench.filter_map/1,
+    "Enum.flat_map/2" => &Bench.flat_map/1
   },
   memory_time: 0.5,
   inputs: inputs,
