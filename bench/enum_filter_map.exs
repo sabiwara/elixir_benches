@@ -1,5 +1,5 @@
 inputs = [
-  "5": Enum.to_list(-5..5),
+  # "5": Enum.to_list(-5..5),
   "50": Enum.to_list(-50..50),
   "500": Enum.to_list(-500..500)
 ]
@@ -17,6 +17,27 @@ defmodule Bench do
 
   def build_list(enum, fun) do
     Enum.reduce(enum, [], fun) |> :lists.reverse()
+  end
+
+  def new_flat_map(enum) do
+    new_flat_map(enum, fn x ->
+      if x > 0, do: [x + 1], else: []
+    end)
+  end
+
+  defp new_flat_map(list, fun) when is_list(list) and is_function(fun, 1) do
+    flat_map_list(list, fun)
+  end
+
+  defp flat_map_list([], _fun), do: []
+
+  defp flat_map_list([head | tail], fun) do
+    case fun.(head) do
+      [] -> flat_map_list(tail, fun)
+      [elem] -> [elem | flat_map_list(tail, fun)]
+      list when is_list(list) -> list ++ flat_map_list(tail, fun)
+      other -> Enum.to_list(other) ++ flat_map_list(tail, fun)
+    end
   end
 
   def flat_map(enum) do
@@ -45,17 +66,19 @@ defmodule Bench do
   end
 end
 
-inputs[:"5"] |> Bench.comprehension() |> dbg()
-inputs[:"5"] |> Bench.build_list() |> dbg()
-inputs[:"5"] |> Bench.filter_map() |> dbg()
-inputs[:"5"] |> Bench.flat_map() |> dbg()
+# inputs[:"5"] |> Bench.comprehension() |> dbg()
+# inputs[:"5"] |> Bench.build_list() |> dbg()
+# inputs[:"5"] |> Bench.filter_map() |> dbg()
+# inputs[:"5"] |> Bench.flat_map() |> dbg()
+# inputs[:"5"] |> Bench.new_flat_map() |> dbg()
 
 Benchee.run(
   %{
-    "comprehension" => &Bench.comprehension/1,
+    # "comprehension" => &Bench.comprehension/1,
     # "Enum.build_list/2" => &Bench.build_list/1,
     "Enum.filter_map/2" => &Bench.filter_map/1,
-    "Enum.flat_map/2" => &Bench.flat_map/1
+    "Enum.flat_map/2" => &Bench.flat_map/1,
+    "Enum.new_flat_map/2" => &Bench.new_flat_map/1
   },
   memory_time: 0.5,
   inputs: inputs,
