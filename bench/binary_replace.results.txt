@@ -1,0 +1,67 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.17.2
+Erlang 27.0
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 0 ns
+reduction time: 0 ns
+parallel: 1
+inputs: small, medium, large
+Estimated total run time: 1.40 min
+
+Benchmarking replace complex list with input small ...
+Benchmarking replace complex list with input medium ...
+Benchmarking replace complex list with input large ...
+Benchmarking replace complex pattern with input small ...
+Benchmarking replace complex pattern with input medium ...
+Benchmarking replace complex pattern with input large ...
+Benchmarking replace simple list with input small ...
+Benchmarking replace simple list with input medium ...
+Benchmarking replace simple list with input large ...
+Benchmarking replace simple pattern with input small ...
+Benchmarking replace simple pattern with input medium ...
+Benchmarking replace simple pattern with input large ...
+
+##### With input small #####
+Name                              ips        average  deviation         median         99th %
+replace complex pattern        3.22 M      310.65 ns  ±9815.74%         250 ns         375 ns
+replace simple pattern         3.20 M      312.14 ns ±10051.33%         250 ns         375 ns
+replace simple list            1.25 M      802.62 ns  ±2582.04%         750 ns         875 ns
+replace complex list           0.22 M     4535.04 ns   ±227.68%        4459 ns        4709 ns
+
+Comparison: 
+replace complex pattern        3.22 M
+replace simple pattern         3.20 M - 1.00x slower +1.49 ns
+replace simple list            1.25 M - 2.58x slower +491.97 ns
+replace complex list           0.22 M - 14.60x slower +4224.39 ns
+
+##### With input medium #####
+Name                              ips        average  deviation         median         99th %
+replace simple pattern        57.41 K       17.42 μs    ±47.95%       15.67 μs       71.42 μs
+replace complex pattern       57.28 K       17.46 μs    ±47.91%       15.63 μs          72 μs
+replace simple list           55.68 K       17.96 μs    ±45.50%       16.21 μs       72.42 μs
+replace complex list          46.25 K       21.62 μs    ±33.67%          20 μs       75.38 μs
+
+Comparison: 
+replace simple pattern        57.41 K
+replace complex pattern       57.28 K - 1.00x slower +0.0411 μs
+replace simple list           55.68 K - 1.03x slower +0.54 μs
+replace complex list          46.25 K - 1.24x slower +4.20 μs
+
+##### With input large #####
+Name                              ips        average  deviation         median         99th %
+replace simple list            1.08 K      924.80 μs    ±16.89%     1062.08 μs     1115.32 μs
+replace simple pattern         1.08 K      925.13 μs    ±16.98%     1048.98 μs     1121.25 μs
+replace complex pattern        1.08 K      927.50 μs    ±17.04%     1051.42 μs     1126.57 μs
+replace complex list           1.08 K      927.90 μs    ±16.82%     1035.71 μs     1112.45 μs
+
+Comparison: 
+replace simple list            1.08 K
+replace simple pattern         1.08 K - 1.00x slower +0.33 μs
+replace complex pattern        1.08 K - 1.00x slower +2.70 μs
+replace complex list           1.08 K - 1.00x slower +3.10 μs
