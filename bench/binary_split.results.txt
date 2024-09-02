@@ -1,0 +1,67 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.17.2
+Erlang 27.0
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 0 ns
+reduction time: 0 ns
+parallel: 1
+inputs: small, medium, large
+Estimated total run time: 1.40 min
+
+Benchmarking complex list with input small ...
+Benchmarking complex list with input medium ...
+Benchmarking complex list with input large ...
+Benchmarking complex pattern with input small ...
+Benchmarking complex pattern with input medium ...
+Benchmarking complex pattern with input large ...
+Benchmarking simple list with input small ...
+Benchmarking simple list with input medium ...
+Benchmarking simple list with input large ...
+Benchmarking simple pattern with input small ...
+Benchmarking simple pattern with input medium ...
+Benchmarking simple pattern with input large ...
+
+##### With input small #####
+Name                      ips        average  deviation         median         99th %
+complex pattern        6.42 M      155.82 ns ±11354.42%         125 ns         167 ns
+simple pattern         6.42 M      155.82 ns ±11277.77%         125 ns         167 ns
+simple list            1.46 M      686.99 ns  ±4955.42%         625 ns         709 ns
+complex list           0.22 M     4555.85 ns   ±180.17%        4334 ns       11917 ns
+
+Comparison: 
+complex pattern        6.42 M
+simple pattern         6.42 M - 1.00x slower +0.00071 ns
+simple list            1.46 M - 4.41x slower +531.18 ns
+complex list           0.22 M - 29.24x slower +4400.03 ns
+
+##### With input medium #####
+Name                      ips        average  deviation         median         99th %
+complex pattern      265.44 K        3.77 μs   ±198.79%        3.67 μs        6.38 μs
+simple pattern       264.01 K        3.79 μs   ±224.51%        3.67 μs        6.38 μs
+simple list          234.17 K        4.27 μs   ±205.49%        4.13 μs        6.96 μs
+complex list         122.71 K        8.15 μs    ±87.13%        7.88 μs       15.75 μs
+
+Comparison: 
+complex pattern      265.44 K
+simple pattern       264.01 K - 1.01x slower +0.0204 μs
+simple list          234.17 K - 1.13x slower +0.50 μs
+complex list         122.71 K - 2.16x slower +4.38 μs
+
+##### With input large #####
+Name                      ips        average  deviation         median         99th %
+simple pattern         3.65 K      273.81 μs    ±50.83%      185.25 μs      560.06 μs
+complex pattern        3.64 K      274.82 μs    ±50.96%      185.38 μs      563.34 μs
+simple list            3.63 K      275.65 μs    ±50.83%         186 μs      562.17 μs
+complex list           3.58 K      279.54 μs    ±50.13%      189.46 μs      566.79 μs
+
+Comparison: 
+simple pattern         3.65 K
+complex pattern        3.64 K - 1.00x slower +1.01 μs
+simple list            3.63 K - 1.01x slower +1.84 μs
+complex list           3.58 K - 1.02x slower +5.73 μs
