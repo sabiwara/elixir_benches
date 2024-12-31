@@ -19,12 +19,12 @@ Benchmarking faster binary with input 10 objects ...
 
 ##### With input 10 objects #####
 Name                    ips        average  deviation         median         99th %
-faster binary      793.49 K        1.26 μs  ±1220.16%        1.17 μs        2.04 μs
-json binary        717.81 K        1.39 μs  ±1158.09%        1.25 μs        2.25 μs
+faster binary      791.36 K        1.26 μs  ±1224.21%        1.13 μs        2.17 μs
+json binary        669.37 K        1.49 μs  ±1189.93%        1.38 μs        2.38 μs
 
 Comparison: 
-faster binary      793.49 K
-json binary        717.81 K - 1.11x slower +0.133 μs
+faster binary      791.36 K
+json binary        669.37 K - 1.18x slower +0.23 μs
 
 Memory usage statistics:
 

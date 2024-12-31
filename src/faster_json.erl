@@ -355,7 +355,7 @@ For any non-ASCII unicode character, a corresponding `\\uXXXX` sequence is used.
 encode_binary_escape_all(Bin) when is_binary(Bin) ->
     escape_all(Bin).
 
-escape_binary(Bin) -> escape_binary_ascii(Bin, [$"], Bin, 0, 0).
+escape_binary(Bin) -> escape_binary_ascii(Bin, $", Bin, 0, 0).
 
 escape_binary_ascii(Binary, Acc, Orig, Skip, Len) ->
     case Binary of

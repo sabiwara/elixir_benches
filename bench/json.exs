@@ -1,4 +1,4 @@
-ten_obj = Enum.map(1..10, &%{"foo#{&1}" => "bar#{&1}"})
+ten_obj = Enum.map(1..10, &%{"foo#{&1}" => "\0"})
 
 Benchee.run(
   [
