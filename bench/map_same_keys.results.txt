@@ -1,0 +1,85 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.18.2
+Erlang 27.2
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 500 ms
+reduction time: 0 ns
+parallel: 1
+inputs: size=5, size=20, size=100
+Estimated total run time: 1.13 min
+
+Benchmarking using_all with input size=5 ...
+Benchmarking using_all with input size=20 ...
+Benchmarking using_all with input size=100 ...
+Benchmarking using_sets with input size=5 ...
+Benchmarking using_sets with input size=20 ...
+Benchmarking using_sets with input size=100 ...
+Benchmarking using_sort with input size=5 ...
+Benchmarking using_sort with input size=20 ...
+Benchmarking using_sort with input size=100 ...
+
+##### With input size=5 #####
+Name                 ips        average  deviation         median         99th %
+using_all         9.11 M      109.81 ns ±35614.70%          83 ns          84 ns
+using_sort        6.35 M      157.47 ns ±17801.12%          84 ns         250 ns
+using_sets        5.16 M      193.76 ns ±14284.68%         125 ns         250 ns
+
+Comparison: 
+using_all         9.11 M
+using_sort        6.35 M - 1.43x slower +47.66 ns
+using_sets        5.16 M - 1.76x slower +83.96 ns
+
+Memory usage statistics:
+
+Name          Memory usage
+using_all            112 B
+using_sort           544 B - 4.86x memory usage +432 B
+using_sets           384 B - 3.43x memory usage +272 B
+
+**All measurements for memory usage were the same**
+
+##### With input size=20 #####
+Name                 ips        average  deviation         median         99th %
+using_all         4.09 M      244.53 ns  ±7483.39%         208 ns         375 ns
+using_sets        3.44 M      290.66 ns  ±8424.26%         250 ns         542 ns
+using_sort        3.25 M      307.30 ns  ±7357.48%         208 ns        1167 ns
+
+Comparison: 
+using_all         4.09 M
+using_sets        3.44 M - 1.19x slower +46.14 ns
+using_sort        3.25 M - 1.26x slower +62.78 ns
+
+Memory usage statistics:
+
+Name          Memory usage
+using_all          0.34 KB
+using_sets            1 KB - 2.91x memory usage +0.66 KB
+using_sort         1.86 KB - 5.41x memory usage +1.52 KB
+
+**All measurements for memory usage were the same**
+
+##### With input size=100 #####
+Name                 ips        average  deviation         median         99th %
+using_all       610.62 K        1.64 μs   ±916.92%        1.58 μs        1.79 μs
+using_sort      271.06 K        3.69 μs   ±275.60%        3.54 μs        4.58 μs
+using_sets       93.05 K       10.75 μs   ±147.27%       10.54 μs       12.63 μs
+
+Comparison: 
+using_all       610.62 K
+using_sort      271.06 K - 2.25x slower +2.05 μs
+using_sets       93.05 K - 6.56x slower +9.11 μs
+
+Memory usage statistics:
+
+Name          Memory usage
+using_all          1.59 KB
+using_sort        16.59 KB - 10.41x memory usage +15 KB
+using_sets         6.18 KB - 3.88x memory usage +4.59 KB
+
+**All measurements for memory usage were the same**
