@@ -1,0 +1,109 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.18.2
+Erlang 27.2
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 500 ms
+reduction time: 0 ns
+parallel: 1
+inputs: size=5, size=20, size=100
+Estimated total run time: 1.88 min
+
+Benchmarking :lists.sort with input size=5 ...
+Benchmarking :lists.sort with input size=20 ...
+Benchmarking :lists.sort with input size=100 ...
+Benchmarking :lists.uniq with input size=5 ...
+Benchmarking :lists.uniq with input size=20 ...
+Benchmarking :lists.uniq with input size=100 ...
+Benchmarking :lists.usort with input size=5 ...
+Benchmarking :lists.usort with input size=20 ...
+Benchmarking :lists.usort with input size=100 ...
+Benchmarking Enum.uniq with input size=5 ...
+Benchmarking Enum.uniq with input size=20 ...
+Benchmarking Enum.uniq with input size=100 ...
+Benchmarking MapSet.new with input size=5 ...
+Benchmarking MapSet.new with input size=20 ...
+Benchmarking MapSet.new with input size=100 ...
+
+##### With input size=5 #####
+Name                   ips        average  deviation         median         99th %
+:lists.sort        16.15 M       61.93 ns ±35510.81%          42 ns          84 ns
+:lists.usort       14.04 M       71.23 ns ±39299.44%          42 ns          84 ns
+MapSet.new         13.48 M       74.19 ns ±30490.29%          42 ns          84 ns
+Enum.uniq           7.74 M      129.15 ns ±14767.12%          83 ns         875 ns
+:lists.uniq         6.92 M      144.52 ns ±19596.22%          83 ns         875 ns
+
+Comparison: 
+:lists.sort        16.15 M
+:lists.usort       14.04 M - 1.15x slower +9.30 ns
+MapSet.new         13.48 M - 1.20x slower +12.27 ns
+Enum.uniq           7.74 M - 2.09x slower +67.22 ns
+:lists.uniq         6.92 M - 2.33x slower +82.59 ns
+
+Memory usage statistics:
+
+Name            Memory usage
+:lists.sort            208 B
+:lists.usort           208 B - 1.00x memory usage +0 B
+MapSet.new             152 B - 0.73x memory usage -56 B
+Enum.uniq              512 B - 2.46x memory usage +304 B
+:lists.uniq            512 B - 2.46x memory usage +304 B
+
+**All measurements for memory usage were the same**
+
+##### With input size=20 #####
+Name                   ips        average  deviation         median         99th %
+MapSet.new          4.39 M      227.66 ns  ±6031.52%         208 ns         250 ns
+:lists.sort         3.63 M      275.38 ns ±10501.00%         208 ns        1000 ns
+:lists.usort        3.51 M      285.20 ns  ±9430.24%         208 ns        1041 ns
+:lists.uniq         1.79 M      558.18 ns  ±2742.58%         500 ns         708 ns
+Enum.uniq           1.66 M      602.00 ns  ±2369.89%         542 ns         750 ns
+
+Comparison: 
+MapSet.new          4.39 M
+:lists.sort         3.63 M - 1.21x slower +47.72 ns
+:lists.usort        3.51 M - 1.25x slower +57.54 ns
+:lists.uniq         1.79 M - 2.45x slower +330.52 ns
+Enum.uniq           1.66 M - 2.64x slower +374.34 ns
+
+Memory usage statistics:
+
+Name            Memory usage
+MapSet.new           0.38 KB
+:lists.sort          1.31 KB - 3.43x memory usage +0.93 KB
+:lists.usort         1.30 KB - 3.39x memory usage +0.91 KB
+:lists.uniq          3.70 KB - 9.67x memory usage +3.32 KB
+Enum.uniq            4.09 KB - 10.69x memory usage +3.71 KB
+
+**All measurements for memory usage were the same**
+
+##### With input size=100 #####
+Name                   ips        average  deviation         median         99th %
+:lists.sort       795.44 K        1.26 μs  ±1320.22%        1.17 μs        1.50 μs
+:lists.usort      693.57 K        1.44 μs  ±1100.35%        1.38 μs        1.67 μs
+MapSet.new        249.81 K        4.00 μs   ±163.43%        3.92 μs        4.83 μs
+:lists.uniq       185.78 K        5.38 μs   ±130.93%        5.21 μs        7.13 μs
+Enum.uniq         177.85 K        5.62 μs    ±74.05%        5.46 μs        7.88 μs
+
+Comparison: 
+:lists.sort       795.44 K
+:lists.usort      693.57 K - 1.15x slower +0.185 μs
+MapSet.new        249.81 K - 3.18x slower +2.75 μs
+:lists.uniq       185.78 K - 4.28x slower +4.13 μs
+Enum.uniq         177.85 K - 4.47x slower +4.37 μs
+
+Memory usage statistics:
+
+Name            Memory usage
+:lists.sort          7.91 KB
+:lists.usort         8.02 KB - 1.01x memory usage +0.109 KB
+MapSet.new           1.18 KB - 0.15x memory usage -6.72656 KB
+:lists.uniq         19.98 KB - 2.53x memory usage +12.08 KB
+Enum.uniq           19.55 KB - 2.47x memory usage +11.65 KB
+
+**All measurements for memory usage were the same**
