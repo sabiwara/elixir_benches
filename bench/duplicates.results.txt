@@ -2,8 +2,8 @@ Operating System: macOS
 CPU Information: Apple M1
 Number of Available Cores: 8
 Available memory: 16 GB
-Elixir 1.16.1
-Erlang 27.0-rc1
+Elixir 1.18.2
+Erlang 27.2
 
 Benchmark suite executing with the following configuration:
 warmup: 2 s
@@ -12,7 +12,7 @@ memory time: 500 ms
 reduction time: 0 ns
 parallel: 1
 inputs: no duplicate, half duplicates, many same duplicates, big no duplicate
-Estimated total run time: 2 min
+Estimated total run time: 2.50 min
 
 Benchmarking duplicates (body recursive) with input no duplicate ...
 Benchmarking duplicates (body recursive) with input half duplicates ...
@@ -30,95 +30,111 @@ Benchmarking naive_uniq with input no duplicate ...
 Benchmarking naive_uniq with input half duplicates ...
 Benchmarking naive_uniq with input many same duplicates ...
 Benchmarking naive_uniq with input big no duplicate ...
+Benchmarking sort_dupes with input no duplicate ...
+Benchmarking sort_dupes with input half duplicates ...
+Benchmarking sort_dupes with input many same duplicates ...
+Benchmarking sort_dupes with input big no duplicate ...
 
 ##### With input no duplicate #####
 Name                                  ips        average  deviation         median         99th %
-duplicates (body recursive)      137.85 K        7.25 μs   ±215.59%        5.88 μs       35.33 μs
-duplicates (tail recursive)      131.41 K        7.61 μs   ±142.89%           6 μs       40.25 μs
-naive_frequencies                 96.16 K       10.40 μs   ±260.72%        7.54 μs       64.83 μs
-naive_uniq                        75.68 K       13.21 μs   ±200.23%       10.71 μs       57.96 μs
+sort_dupes                      1713.45 K        0.58 μs  ±3166.73%        0.54 μs        1.25 μs
+duplicates (body recursive)      215.23 K        4.65 μs    ±11.12%        4.58 μs        6.54 μs
+duplicates (tail recursive)      213.31 K        4.69 μs    ±12.10%        4.63 μs        6.58 μs
+naive_frequencies                168.16 K        5.95 μs   ±121.11%        5.71 μs       14.83 μs
+naive_uniq                       114.36 K        8.74 μs    ±51.08%        8.54 μs       14.99 μs
 
 Comparison: 
-duplicates (body recursive)      137.85 K
-duplicates (tail recursive)      131.41 K - 1.05x slower +0.36 μs
-naive_frequencies                 96.16 K - 1.43x slower +3.15 μs
-naive_uniq                        75.68 K - 1.82x slower +5.96 μs
+sort_dupes                      1713.45 K
+duplicates (body recursive)      215.23 K - 7.96x slower +4.06 μs
+duplicates (tail recursive)      213.31 K - 8.03x slower +4.10 μs
+naive_frequencies                168.16 K - 10.19x slower +5.36 μs
+naive_uniq                       114.36 K - 14.98x slower +8.16 μs
 
 Memory usage statistics:
 
 Name                           Memory usage
-duplicates (body recursive)         1.18 KB
-duplicates (tail recursive)         1.18 KB - 1.00x memory usage +0 KB
-naive_frequencies                   6.67 KB - 5.66x memory usage +5.49 KB
-naive_uniq                         21.34 KB - 18.09x memory usage +20.16 KB
+sort_dupes                          2.80 KB
+duplicates (body recursive)         1.18 KB - 0.42x memory usage -1.61719 KB
+duplicates (tail recursive)         1.18 KB - 0.42x memory usage -1.61719 KB
+naive_frequencies                   6.67 KB - 2.39x memory usage +3.88 KB
+naive_uniq                         21.34 KB - 7.63x memory usage +18.54 KB
 
 **All measurements for memory usage were the same**
 
 ##### With input half duplicates #####
 Name                                  ips        average  deviation         median         99th %
-naive_frequencies                134.38 K        7.44 μs   ±210.18%        6.63 μs       25.71 μs
-duplicates (tail recursive)      125.87 K        7.94 μs   ±348.23%        6.08 μs       46.55 μs
-duplicates (body recursive)      122.51 K        8.16 μs   ±434.69%        6.21 μs       44.67 μs
-naive_uniq                        73.02 K       13.69 μs   ±191.92%        9.92 μs       78.25 μs
+sort_dupes                       733.11 K        1.36 μs   ±980.69%        1.29 μs        1.54 μs
+duplicates (tail recursive)      211.79 K        4.72 μs   ±133.68%        4.54 μs       11.63 μs
+duplicates (body recursive)      199.55 K        5.01 μs   ±130.60%        4.79 μs       11.88 μs
+naive_frequencies                180.29 K        5.55 μs   ±124.49%        5.33 μs       12.08 μs
+naive_uniq                       123.71 K        8.08 μs    ±34.06%        7.92 μs       13.58 μs
 
 Comparison: 
-naive_frequencies                134.38 K
-duplicates (tail recursive)      125.87 K - 1.07x slower +0.50 μs
-duplicates (body recursive)      122.51 K - 1.10x slower +0.72 μs
-naive_uniq                        73.02 K - 1.84x slower +6.25 μs
+sort_dupes                       733.11 K
+duplicates (tail recursive)      211.79 K - 3.46x slower +3.36 μs
+duplicates (body recursive)      199.55 K - 3.67x slower +3.65 μs
+naive_frequencies                180.29 K - 4.07x slower +4.18 μs
+naive_uniq                       123.71 K - 5.93x slower +6.72 μs
 
 Memory usage statistics:
 
 Name                           Memory usage
-naive_frequencies                   5.50 KB
-duplicates (tail recursive)        12.49 KB - 2.27x memory usage +6.99 KB
-duplicates (body recursive)        11.90 KB - 2.16x memory usage +6.40 KB
-naive_uniq                         24.45 KB - 4.45x memory usage +18.95 KB
+sort_dupes                          7.39 KB
+duplicates (tail recursive)        12.49 KB - 1.69x memory usage +5.10 KB
+duplicates (body recursive)        11.90 KB - 1.61x memory usage +4.51 KB
+naive_frequencies                   5.50 KB - 0.74x memory usage -1.89063 KB
+naive_uniq                         24.45 KB - 3.31x memory usage +17.06 KB
 
 **All measurements for memory usage were the same**
 
 ##### With input many same duplicates #####
 Name                                  ips        average  deviation         median         99th %
-duplicates (tail recursive)        2.39 M        0.42 μs ±12190.07%        0.29 μs        0.71 μs
-duplicates (body recursive)        1.81 M        0.55 μs ±12732.96%        0.33 μs        0.79 μs
-naive_frequencies                  0.64 M        1.55 μs  ±2239.50%        1.13 μs        5.42 μs
-naive_uniq                         0.47 M        2.12 μs  ±1067.78%        1.33 μs       17.50 μs
+duplicates (body recursive)        3.53 M      283.01 ns  ±5989.70%         250 ns         417 ns
+duplicates (tail recursive)        3.31 M      301.80 ns  ±6820.85%         250 ns         417 ns
+sort_dupes                         1.77 M      566.44 ns  ±3356.97%         500 ns         667 ns
+naive_uniq                         0.92 M     1084.45 ns  ±1311.34%        1042 ns        1209 ns
+naive_frequencies                  0.88 M     1139.88 ns  ±1207.31%         917 ns       13000 ns
 
 Comparison: 
-duplicates (tail recursive)        2.39 M
-duplicates (body recursive)        1.81 M - 1.32x slower +0.135 μs
-naive_frequencies                  0.64 M - 3.71x slower +1.13 μs
-naive_uniq                         0.47 M - 5.07x slower +1.70 μs
+duplicates (body recursive)        3.53 M
+duplicates (tail recursive)        3.31 M - 1.07x slower +18.79 ns
+sort_dupes                         1.77 M - 2.00x slower +283.43 ns
+naive_uniq                         0.92 M - 3.83x slower +801.44 ns
+naive_frequencies                  0.88 M - 4.03x slower +856.87 ns
 
 Memory usage statistics:
 
 Name                           Memory usage
-duplicates (tail recursive)         0.25 KB
-duplicates (body recursive)         0.22 KB - 0.88x memory usage -0.03125 KB
-naive_frequencies                   1.36 KB - 5.44x memory usage +1.11 KB
-naive_uniq                          1.06 KB - 4.25x memory usage +0.81 KB
+duplicates (body recursive)         0.22 KB
+duplicates (tail recursive)         0.25 KB - 1.14x memory usage +0.0313 KB
+sort_dupes                          2.83 KB - 12.93x memory usage +2.61 KB
+naive_uniq                          1.06 KB - 4.86x memory usage +0.84 KB
+naive_frequencies                   1.36 KB - 6.21x memory usage +1.14 KB
 
 **All measurements for memory usage were the same**
 
 ##### With input big no duplicate #####
 Name                                  ips        average  deviation         median         99th %
-duplicates (tail recursive)         32.56       30.71 ms    ±16.51%       30.20 ms       45.23 ms
-duplicates (body recursive)         23.97       41.71 ms    ±38.19%       40.87 ms      102.08 ms
-naive_frequencies                   21.51       46.49 ms    ±25.28%       46.34 ms       77.20 ms
-naive_uniq                          12.67       78.90 ms    ±21.18%       74.63 ms      162.62 ms
+sort_dupes                        1292.33        0.77 ms    ±30.41%        0.86 ms        1.20 ms
+duplicates (body recursive)         48.05       20.81 ms     ±7.48%       19.92 ms       25.32 ms
+duplicates (tail recursive)         47.41       21.09 ms     ±8.30%       20.31 ms       26.19 ms
+naive_frequencies                   42.47       23.55 ms     ±8.20%       23.63 ms       27.74 ms
+naive_uniq                          30.22       33.09 ms     ±4.82%       32.60 ms       38.98 ms
 
 Comparison: 
-duplicates (tail recursive)         32.56
-duplicates (body recursive)         23.97 - 1.36x slower +11.00 ms
-naive_frequencies                   21.51 - 1.51x slower +15.78 ms
-naive_uniq                          12.67 - 2.57x slower +48.19 ms
+sort_dupes                        1292.33
+duplicates (body recursive)         48.05 - 26.90x slower +20.04 ms
+duplicates (tail recursive)         47.41 - 27.26x slower +20.32 ms
+naive_frequencies                   42.47 - 30.43x slower +22.77 ms
+naive_uniq                          30.22 - 42.77x slower +32.32 ms
 
 Memory usage statistics:
 
 Name                           Memory usage
-duplicates (tail recursive)        23.95 MB
-duplicates (body recursive)        23.95 MB - 1.00x memory usage +0 MB
-naive_frequencies                  39.04 MB - 1.63x memory usage +15.09 MB
-naive_uniq                         50.53 MB - 2.11x memory usage +26.59 MB
+sort_dupes                          2.43 MB
+duplicates (body recursive)        23.95 MB - 9.86x memory usage +21.52 MB
+duplicates (tail recursive)        23.95 MB - 9.86x memory usage +21.52 MB
+naive_frequencies                  39.04 MB - 16.08x memory usage +36.61 MB
+naive_uniq                         50.53 MB - 20.82x memory usage +48.10 MB
 
 **All measurements for memory usage were the same**
