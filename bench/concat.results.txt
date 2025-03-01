@@ -1,0 +1,108 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.18.2
+Erlang 27.2
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 500 ms
+reduction time: 0 ns
+parallel: 1
+inputs: 50x10, 2000x10, 50x100, 2000x100
+Estimated total run time: 1.50 min
+
+Benchmarking concat_string with input 50x10 ...
+Benchmarking concat_string with input 2000x10 ...
+Benchmarking concat_string with input 50x100 ...
+Benchmarking concat_string with input 2000x100 ...
+Benchmarking concat_iodata with input 50x10 ...
+Benchmarking concat_iodata with input 2000x10 ...
+Benchmarking concat_iodata with input 50x100 ...
+Benchmarking concat_iodata with input 2000x100 ...
+Benchmarking concat_reverse_list with input 50x10 ...
+Benchmarking concat_reverse_list with input 2000x10 ...
+Benchmarking concat_reverse_list with input 50x100 ...
+Benchmarking concat_reverse_list with input 2000x100 ...
+
+##### With input 50x10 #####
+Name                          ips        average  deviation         median         99th %
+concat_reverse_list        1.42 M      702.49 ns  ±3632.25%         584 ns        1667 ns
+concat_string              1.06 M      945.36 ns   ±194.55%         792 ns        2667 ns
+concat_iodata              1.05 M      949.45 ns  ±1844.77%         875 ns        1000 ns
+
+Comparison: 
+concat_reverse_list        1.42 M
+concat_string              1.06 M - 1.35x slower +242.87 ns
+concat_iodata              1.05 M - 1.35x slower +246.96 ns
+
+Memory usage statistics:
+
+Name                   Memory usage
+concat_reverse_list         1.63 KB
+concat_string               1.98 KB - 1.22x memory usage +0.35 KB
+concat_iodata               0.84 KB - 0.52x memory usage -0.78125 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 2000x10 #####
+Name                          ips        average  deviation         median         99th %
+concat_reverse_list       41.61 K       24.03 μs    ±23.20%       19.88 μs       39.83 μs
+concat_string             39.26 K       25.47 μs     ±5.13%       25.38 μs       26.71 μs
+concat_iodata             30.64 K       32.64 μs    ±14.62%       31.08 μs       38.58 μs
+
+Comparison: 
+concat_reverse_list       41.61 K
+concat_string             39.26 K - 1.06x slower +1.44 μs
+concat_iodata             30.64 K - 1.36x slower +8.60 μs
+
+Memory usage statistics:
+
+Name                   Memory usage
+concat_reverse_list        44.63 KB
+concat_string              78.15 KB - 1.75x memory usage +33.52 KB
+concat_iodata              31.31 KB - 0.70x memory usage -13.31250 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 50x100 #####
+Name                          ips        average  deviation         median         99th %
+concat_reverse_list     1364.29 K        0.73 μs  ±2288.48%        0.67 μs        4.29 μs
+concat_iodata            992.66 K        1.01 μs  ±1483.03%        0.92 μs        3.88 μs
+concat_string            955.84 K        1.05 μs    ±20.56%        1.08 μs        1.29 μs
+
+Comparison: 
+concat_reverse_list     1364.29 K
+concat_iodata            992.66 K - 1.37x slower +0.27 μs
+concat_string            955.84 K - 1.43x slower +0.31 μs
+
+Memory usage statistics:
+
+Name                   Memory usage
+concat_reverse_list         1.63 KB
+concat_iodata               0.84 KB - 0.52x memory usage -0.78125 KB
+concat_string               1.98 KB - 1.22x memory usage +0.35 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 2000x100 #####
+Name                          ips        average  deviation         median         99th %
+concat_string             33.16 K       30.16 μs    ±11.67%       30.21 μs       32.38 μs
+concat_reverse_list       23.80 K       42.02 μs     ±7.22%       43.17 μs       46.58 μs
+concat_iodata             22.69 K       44.07 μs    ±78.43%       42.79 μs       48.42 μs
+
+Comparison: 
+concat_string             33.16 K
+concat_reverse_list       23.80 K - 1.39x slower +11.87 μs
+concat_iodata             22.69 K - 1.46x slower +13.91 μs
+
+Memory usage statistics:
+
+Name                   Memory usage
+concat_string              78.15 KB
+concat_reverse_list        62.56 KB - 0.80x memory usage -15.58594 KB
+concat_iodata              31.31 KB - 0.40x memory usage -46.83594 KB
+
+**All measurements for memory usage were the same**
