@@ -1,0 +1,61 @@
+[bench/file_wc.exs:39: (file)]
+Bench.stream_count(path) #=> 1000
+
+[bench/file_wc.exs:40: (file)]
+Bench.stream_reduce(path) #=> 1000
+
+[bench/file_wc.exs:41: (file)]
+Bench.raw_file(path) #=> 1000
+
+[bench/file_wc.exs:42: (file)]
+Bench.no_raw_file(path) #=> 1000
+
+[bench/file_wc.exs:43: (file)]
+Bench.no_read_ahead(path) #=> 1000
+
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.18.3
+Erlang 27.3
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 2 s
+memory time: 500 ms
+reduction time: 0 ns
+parallel: 1
+inputs: none specified
+Estimated total run time: 22.50 s
+
+Benchmarking :raw file ...
+Benchmarking File.stream |> Enum.count ...
+Benchmarking File.stream |> Enum.reduce ...
+Benchmarking no :no_read_ahead :raw file ...
+Benchmarking no :raw file ...
+
+Name                                  ips        average  deviation         median         99th %
+File.stream |> Enum.count         17.31 K       57.77 μs   ±128.70%       55.83 μs      110.53 μs
+:raw file                          8.36 K      119.68 μs    ±16.70%      116.71 μs      179.48 μs
+File.stream |> Enum.reduce         7.07 K      141.44 μs    ±14.43%      140.08 μs      214.43 μs
+no :no_read_ahead :raw file        5.13 K      195.03 μs    ±18.72%      186.88 μs      319.55 μs
+no :raw file                       0.91 K     1095.01 μs     ±2.94%     1087.50 μs     1238.59 μs
+
+Comparison: 
+File.stream |> Enum.count         17.31 K
+:raw file                          8.36 K - 2.07x slower +61.91 μs
+File.stream |> Enum.reduce         7.07 K - 2.45x slower +83.68 μs
+no :no_read_ahead :raw file        5.13 K - 3.38x slower +137.27 μs
+no :raw file                       0.91 K - 18.96x slower +1037.24 μs
+
+Memory usage statistics:
+
+Name                           Memory usage
+File.stream |> Enum.count           0.84 KB
+:raw file                         133.34 KB - 159.50x memory usage +132.50 KB
+File.stream |> Enum.reduce        196.26 KB - 234.78x memory usage +195.42 KB
+no :no_read_ahead :raw file       135.35 KB - 161.92x memory usage +134.52 KB
+no :raw file                      187.98 KB - 224.88x memory usage +187.15 KB
+
+**All measurements for memory usage were the same**
