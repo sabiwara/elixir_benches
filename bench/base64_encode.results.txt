@@ -2,8 +2,8 @@ Operating System: macOS
 CPU Information: Apple M1
 Number of Available Cores: 8
 Available memory: 16 GB
-Elixir 1.13.4
-Erlang 25.0
+Elixir 1.19.0-dev
+Erlang 27.3
 
 Benchmark suite executing with the following configuration:
 warmup: 2 s
@@ -25,68 +25,68 @@ Benchmarking Base.encode64/1 with input 1024 ...
 
 ##### With input 32 #####
 Name                       ips        average  deviation         median         99th %
-:base64.encode/1        2.09 M      479.08 ns  ±4806.31%         375 ns         584 ns
-Base.encode64/1         1.49 M      669.73 ns  ±3224.14%         583 ns         833 ns
+Base.encode64/1         7.61 M      131.38 ns    ±50.87%         125 ns         167 ns
+:base64.encode/1        7.50 M      133.29 ns    ±54.50%         125 ns         167 ns
 
 Comparison: 
-:base64.encode/1        2.09 M
-Base.encode64/1         1.49 M - 1.40x slower +190.65 ns
+Base.encode64/1         7.61 M
+:base64.encode/1        7.50 M - 1.01x slower +1.92 ns
 
 Memory usage statistics:
 
 Name                Memory usage
-:base64.encode/1           528 B
-Base.encode64/1            280 B - 0.53x memory usage -248 B
+Base.encode64/1            104 B
+:base64.encode/1           104 B - 1.00x memory usage +0 B
 
 **All measurements for memory usage were the same**
 
 ##### With input 128 #####
 Name                       ips        average  deviation         median         99th %
-:base64.encode/1      648.99 K        1.54 μs  ±1701.87%        1.33 μs        1.71 μs
-Base.encode64/1       506.64 K        1.97 μs  ±1116.14%        1.71 μs        3.33 μs
+Base.encode64/1         3.50 M      286.01 ns    ±36.69%         292 ns         375 ns
+:base64.encode/1        3.10 M      322.09 ns   ±202.96%         333 ns         417 ns
 
 Comparison: 
-:base64.encode/1      648.99 K
-Base.encode64/1       506.64 K - 1.28x slower +0.43 μs
+Base.encode64/1         3.50 M
+:base64.encode/1        3.10 M - 1.13x slower +36.08 ns
 
 Memory usage statistics:
 
 Name                Memory usage
-:base64.encode/1         1.77 KB
-Base.encode64/1          0.27 KB - 0.15x memory usage -1.50000 KB
+Base.encode64/1            104 B
+:base64.encode/1           104 B - 1.00x memory usage +0 B
 
 **All measurements for memory usage were the same**
 
 ##### With input 512 #####
 Name                       ips        average  deviation         median         99th %
-:base64.encode/1      168.34 K        5.94 μs   ±879.15%        5.21 μs       15.33 μs
-Base.encode64/1       155.69 K        6.42 μs   ±301.66%        6.25 μs        7.29 μs
+Base.encode64/1         1.04 M        0.96 μs    ±17.07%        0.96 μs        1.08 μs
+:base64.encode/1        0.89 M        1.13 μs   ±506.15%        1.08 μs        1.25 μs
 
 Comparison: 
-:base64.encode/1      168.34 K
-Base.encode64/1       155.69 K - 1.08x slower +0.48 μs
+Base.encode64/1         1.04 M
+:base64.encode/1        0.89 M - 1.17x slower +0.162 μs
 
 Memory usage statistics:
 
 Name                Memory usage
-:base64.encode/1         6.77 KB
-Base.encode64/1          0.27 KB - 0.04x memory usage -6.50000 KB
+Base.encode64/1            104 B
+:base64.encode/1           104 B - 1.00x memory usage +0 B
 
 **All measurements for memory usage were the same**
 
 ##### With input 1024 #####
 Name                       ips        average  deviation         median         99th %
-:base64.encode/1       93.89 K       10.65 μs   ±256.08%       10.38 μs       13.21 μs
-Base.encode64/1        77.76 K       12.86 μs    ±78.03%       12.75 μs       14.38 μs
+Base.encode64/1       512.35 K        1.95 μs    ±16.45%        1.88 μs        2.92 μs
+:base64.encode/1      471.05 K        2.12 μs   ±247.87%        2.08 μs        2.25 μs
 
 Comparison: 
-:base64.encode/1       93.89 K
-Base.encode64/1        77.76 K - 1.21x slower +2.21 μs
+Base.encode64/1       512.35 K
+:base64.encode/1      471.05 K - 1.09x slower +0.171 μs
 
 Memory usage statistics:
 
 Name                Memory usage
-:base64.encode/1        13.45 KB
-Base.encode64/1          0.27 KB - 0.02x memory usage -13.17969 KB
+Base.encode64/1            104 B
+:base64.encode/1           104 B - 1.00x memory usage +0 B
 
 **All measurements for memory usage were the same**

@@ -2,8 +2,8 @@ Operating System: macOS
 CPU Information: Apple M1
 Number of Available Cores: 8
 Available memory: 16 GB
-Elixir 1.13.4
-Erlang 25.0
+Elixir 1.19.0-dev
+Erlang 27.3
 
 Benchmark suite executing with the following configuration:
 warmup: 2 s
@@ -25,68 +25,68 @@ Benchmarking Base.decode64/1 with input 1024 ...
 
 ##### With input 32 #####
 Name                       ips        average  deviation         median         99th %
-:base64.decode/1        1.73 M      579.29 ns  ±4016.41%         500 ns         708 ns
-Base.decode64/1         1.23 M      811.78 ns  ±3254.76%         667 ns         917 ns
+:base64.decode/1        5.17 M      193.41 ns   ±124.38%         208 ns         250 ns
+Base.decode64/1         3.72 M      268.50 ns  ±1365.08%         250 ns         417 ns
 
 Comparison: 
-:base64.decode/1        1.73 M
-Base.decode64/1         1.23 M - 1.40x slower +232.49 ns
+:base64.decode/1        5.17 M
+Base.decode64/1         3.72 M - 1.39x slower +75.09 ns
 
 Memory usage statistics:
 
 Name                Memory usage
-:base64.decode/1           528 B
-Base.decode64/1            288 B - 0.55x memory usage -240 B
+:base64.decode/1           160 B
+Base.decode64/1            224 B - 1.40x memory usage +64 B
 
 **All measurements for memory usage were the same**
 
 ##### With input 128 #####
 Name                       ips        average  deviation         median         99th %
-:base64.decode/1      505.82 K        1.98 μs  ±1726.56%        1.71 μs        2.88 μs
-Base.decode64/1       415.89 K        2.40 μs   ±679.00%        2.29 μs        3.04 μs
+:base64.decode/1        2.20 M        0.46 μs    ±65.97%        0.46 μs        0.58 μs
+Base.decode64/1         1.00 M        1.00 μs   ±222.56%        0.58 μs          13 μs
 
 Comparison: 
-:base64.decode/1      505.82 K
-Base.decode64/1       415.89 K - 1.22x slower +0.43 μs
+:base64.decode/1        2.20 M
+Base.decode64/1         1.00 M - 2.20x slower +0.55 μs
 
 Memory usage statistics:
 
 Name                Memory usage
-:base64.decode/1         1.77 KB
-Base.decode64/1          0.27 KB - 0.15x memory usage -1.50000 KB
+:base64.decode/1           160 B
+Base.decode64/1            208 B - 1.30x memory usage +48 B
 
 **All measurements for memory usage were the same**
 
 ##### With input 512 #####
 Name                       ips        average  deviation         median         99th %
-:base64.decode/1      135.82 K        7.36 μs   ±743.37%        6.58 μs       10.71 μs
-Base.decode64/1       114.53 K        8.73 μs    ±58.92%        8.63 μs       10.08 μs
+:base64.decode/1      651.76 K        1.53 μs    ±21.53%        1.50 μs        1.67 μs
+Base.decode64/1       513.57 K        1.95 μs   ±488.46%        1.83 μs        2.88 μs
 
 Comparison: 
-:base64.decode/1      135.82 K
-Base.decode64/1       114.53 K - 1.19x slower +1.37 μs
+:base64.decode/1      651.76 K
+Base.decode64/1       513.57 K - 1.27x slower +0.41 μs
 
 Memory usage statistics:
 
 Name                Memory usage
-:base64.decode/1         6.77 KB
-Base.decode64/1          0.27 KB - 0.04x memory usage -6.50000 KB
+:base64.decode/1           160 B
+Base.decode64/1            208 B - 1.30x memory usage +48 B
 
 **All measurements for memory usage were the same**
 
 ##### With input 1024 #####
 Name                       ips        average  deviation         median         99th %
-:base64.decode/1       75.81 K       13.19 μs    ±28.07%       13.08 μs       15.04 μs
-Base.decode64/1        57.22 K       17.48 μs    ±20.20%       17.29 μs       19.38 μs
+:base64.decode/1      335.54 K        2.98 μs   ±285.75%        2.92 μs        3.17 μs
+Base.decode64/1       247.21 K        4.05 μs   ±178.96%        3.58 μs          16 μs
 
 Comparison: 
-:base64.decode/1       75.81 K
-Base.decode64/1        57.22 K - 1.33x slower +4.29 μs
+:base64.decode/1      335.54 K
+Base.decode64/1       247.21 K - 1.36x slower +1.06 μs
 
 Memory usage statistics:
 
 Name                Memory usage
-:base64.decode/1        13.45 KB
-Base.decode64/1          0.27 KB - 0.02x memory usage -13.17969 KB
+:base64.decode/1           160 B
+Base.decode64/1            208 B - 1.30x memory usage +48 B
 
 **All measurements for memory usage were the same**
