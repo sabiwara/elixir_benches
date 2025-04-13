@@ -1,0 +1,73 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.19.0-dev
+Erlang 27.3
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 1 s
+reduction time: 0 ns
+parallel: 1
+inputs: small string, big string, invalid string
+Estimated total run time: 48 s
+
+Benchmarking PR with input small string ...
+Benchmarking PR with input big string ...
+Benchmarking PR with input invalid string ...
+Benchmarking main with input small string ...
+Benchmarking main with input big string ...
+Benchmarking main with input invalid string ...
+
+##### With input small string #####
+Name           ips        average  deviation         median         99th %
+PR          4.12 M      242.53 ns ±20144.77%          83 ns         208 ns
+main        2.45 M      408.99 ns ±19199.13%          83 ns         208 ns
+
+Comparison: 
+PR          4.12 M
+main        2.45 M - 1.69x slower +166.46 ns
+
+Memory usage statistics:
+
+Name    Memory usage
+PR             104 B
+main           104 B - 1.00x memory usage +0 B
+
+**All measurements for memory usage were the same**
+
+##### With input big string #####
+Name           ips        average  deviation         median         99th %
+PR          892.92        1.12 ms     ±3.98%        1.11 ms        1.19 ms
+main        391.44        2.55 ms     ±0.86%        2.55 ms        2.64 ms
+
+Comparison: 
+PR          892.92
+main        391.44 - 2.28x slower +1.43 ms
+
+Memory usage statistics:
+
+Name    Memory usage
+PR             120 B
+main           120 B - 1.00x memory usage +0 B
+
+**All measurements for memory usage were the same**
+
+##### With input invalid string #####
+Name           ips        average  deviation         median         99th %
+PR          2.65 M        0.38 μs ±12884.12%        0.21 μs        0.33 μs
+main        0.90 M        1.11 μs  ±2373.95%        0.79 μs        1.75 μs
+
+Comparison: 
+PR          2.65 M
+main        0.90 M - 2.95x slower +0.74 μs
+
+Memory usage statistics:
+
+Name    Memory usage
+PR          0.117 KB
+main         1.04 KB - 8.87x memory usage +0.92 KB
+
+**All measurements for memory usage were the same**
