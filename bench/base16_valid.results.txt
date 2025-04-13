@@ -1,0 +1,80 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.19.0-dev
+Erlang 27.3
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 1 s
+reduction time: 0 ns
+parallel: 1
+inputs: small string, big string, invalid string
+Estimated total run time: 48 s
+
+Benchmarking PR with input small string ...
+Warning: The function you are trying to benchmark is super fast, making measurements more unreliable!
+This holds especially true for memory measurements or when running with hooks.
+
+See: https://github.com/bencheeorg/benchee/wiki/Benchee-Warnings#fast-execution-warning
+
+You may disable this warning by passing print: [fast_warning: false] as configuration options.
+
+Benchmarking PR with input big string ...
+Benchmarking PR with input invalid string ...
+Benchmarking main with input small string ...
+Benchmarking main with input big string ...
+Benchmarking main with input invalid string ...
+
+##### With input small string #####
+Name           ips        average  deviation         median         99th %
+PR          8.99 M      111.26 ns  ±7891.03%       62.50 ns      141.60 ns
+main        4.42 M      226.37 ns ±19885.81%         125 ns         250 ns
+
+Comparison: 
+PR          8.99 M
+main        4.42 M - 2.03x slower +115.11 ns
+
+Memory usage statistics:
+
+Name    Memory usage
+PR              40 B
+main            40 B - 1.00x memory usage +0 B
+
+**All measurements for memory usage were the same**
+
+##### With input big string #####
+Name           ips        average  deviation         median         99th %
+PR          210.69        4.75 ms     ±0.45%        4.75 ms        4.81 ms
+main        114.54        8.73 ms     ±2.65%        8.71 ms        9.22 ms
+
+Comparison: 
+PR          210.69
+main        114.54 - 1.84x slower +3.98 ms
+
+Memory usage statistics:
+
+Name    Memory usage
+PR              40 B
+main            40 B - 1.00x memory usage +0 B
+
+**All measurements for memory usage were the same**
+
+##### With input invalid string #####
+Name           ips        average  deviation         median         99th %
+PR          2.15 M        0.47 μs  ±5777.00%        0.42 μs        0.54 μs
+main        0.61 M        1.63 μs  ±2239.39%        1.17 μs        2.17 μs
+
+Comparison: 
+PR          2.15 M
+main        0.61 M - 3.51x slower +1.17 μs
+
+Memory usage statistics:
+
+Name    Memory usage
+PR              40 B
+main           984 B - 24.60x memory usage +944 B
+
+**All measurements for memory usage were the same**
