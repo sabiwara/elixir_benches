@@ -318,7 +318,7 @@ defmodule FastEnum do
     empty.()
   end
 
-  defp aggregate(first..last, fun, _empty) do
+  defp aggregate(first..last//_, fun, _empty) do
     case fun.(first, last) do
       true -> first
       false -> last
