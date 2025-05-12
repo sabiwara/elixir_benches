@@ -1,0 +1,73 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.18.3
+Erlang 27.3
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 500 ms
+reduction time: 0 ns
+parallel: 1
+inputs: 5 in 50, 5 in 500, 1000 in 500
+Estimated total run time: 45 s
+
+Benchmarking Enum with input 5 in 50 ...
+Benchmarking Enum with input 5 in 500 ...
+Benchmarking Enum with input 1000 in 500 ...
+Benchmarking Optimized with input 5 in 50 ...
+Benchmarking Optimized with input 5 in 500 ...
+Benchmarking Optimized with input 1000 in 500 ...
+
+##### With input 5 in 50 #####
+Name                ips        average  deviation         median         99th %
+Optimized        3.97 M      251.85 ns ±11978.63%         208 ns         334 ns
+Enum             2.21 M      451.74 ns  ±7152.83%         375 ns         542 ns
+
+Comparison: 
+Optimized        3.97 M
+Enum             2.21 M - 1.79x slower +199.90 ns
+
+Memory usage statistics:
+
+Name         Memory usage
+Optimized            0 KB
+Enum              1.38 KB - ∞ x memory usage +1.38 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 5 in 500 #####
+Name                ips        average  deviation         median         99th %
+Optimized      541.53 K        1.85 μs   ±125.46%        1.63 μs       13.42 μs
+Enum           308.11 K        3.25 μs   ±272.84%        3.17 μs        3.71 μs
+
+Comparison: 
+Optimized      541.53 K
+Enum           308.11 K - 1.76x slower +1.40 μs
+
+Memory usage statistics:
+
+Name         Memory usage
+Optimized            0 KB
+Enum             11.93 KB - ∞ x memory usage +11.93 KB
+
+**All measurements for memory usage were the same**
+
+##### With input 1000 in 500 #####
+Name                ips        average  deviation         median         99th %
+Optimized      265.98 K        3.76 μs    ±95.90%        3.25 μs       15.83 μs
+Enum            75.76 K       13.20 μs    ±52.02%       18.38 μs       20.54 μs
+
+Comparison: 
+Optimized      265.98 K
+Enum            75.76 K - 3.51x slower +9.44 μs
+
+Memory usage statistics:
+
+Name         Memory usage
+Optimized            0 KB
+Enum             23.53 KB - ∞ x memory usage +23.53 KB
+
+**All measurements for memory usage were the same**
