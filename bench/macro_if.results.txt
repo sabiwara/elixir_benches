@@ -1,0 +1,97 @@
+[36m[3m[bench/macro_if.exs:99: (file)][0m
+[0mBench.expand_kernel()[2m #=>[0m {:case, [optimize_boolean: true, type_check: :expr],
+ [
+   {{:., [], [Enum, :random]}, [], [[true, false]]},
+   [
+     do: [
+       {:->, [],
+        [
+          [
+            {:when, [],
+             [
+               {:x, [version: 1, counter: -576460752303421020], Kernel},
+               {{:., [], [:erlang, :orelse]}, [],
+                [
+                  {{:., [], [:erlang, :"=:="]}, [],
+                   [
+                     {:x, [version: 1, counter: -576460752303421020], Kernel},
+                     false
+                   ]},
+                  {{:., [], [:erlang, :"=:="]}, [],
+                   [
+                     {:x, [version: 1, counter: -576460752303421020], Kernel},
+                     nil
+                   ]}
+                ]}
+             ]}
+          ],
+          0
+        ]},
+       {:->, [], [[{:_, [], Kernel}], 1]}
+     ]
+   ]
+ ]}
+
+[0m[36m[3m[bench/macro_if.exs:100: (file)][0m
+[0mBench.expand_new()[2m #=>[0m {:case, [optimize_boolean: true, type_check: :expr],
+ [
+   {{:., [], [Enum, :random]}, [], [[true, false]]},
+   [
+     do: [
+       {:->, [],
+        [
+          [
+            {:when, [],
+             [
+               {:x, [version: 1, counter: -576460752303420956], MyKernel},
+               {{:., [], [:erlang, :orelse]}, [],
+                [
+                  {{:., [], [:erlang, :==]}, [],
+                   [
+                     {:x, [version: 1, counter: -576460752303420956], MyKernel},
+                     false
+                   ]},
+                  {{:., [], [:erlang, :==]}, [],
+                   [
+                     {:x, [version: 1, counter: -576460752303420956], MyKernel},
+                     nil
+                   ]}
+                ]}
+             ]}
+          ],
+          0
+        ]},
+       {:->, [], [[{:_, [], MyKernel}], 1]}
+     ]
+   ]
+ ]}
+
+[0mOperating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.19.0-rc.0
+Erlang 28.0.1
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 3 s
+memory time: 0 ns
+reduction time: 0 ns
+parallel: 1
+inputs: none specified
+Estimated total run time: 15 s
+
+Benchmarking copied ...
+Benchmarking new ...
+Benchmarking kernel ...
+
+Name             ips        average  deviation         median         99th %
+copied      285.60 K        3.50 μs   ±160.05%        3.38 μs        5.33 μs
+new         277.50 K        3.60 μs   ±176.04%        3.46 μs        5.33 μs
+kernel      258.04 K        3.88 μs   ±209.11%        3.71 μs        5.79 μs
+
+Comparison: 
+copied      285.60 K
+new         277.50 K - 1.03x slower +0.102 μs
+kernel      258.04 K - 1.11x slower +0.37 μs
