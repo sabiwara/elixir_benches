@@ -1,0 +1,62 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.19.0-rc.0
+Erlang 27.3
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 500 ms
+reduction time: 0 ns
+parallel: 1
+inputs: list, range
+Estimated total run time: 45 s
+
+Benchmarking Enum.into with input list ...
+Benchmarking Enum.into with input range ...
+Benchmarking Map.new with input list ...
+Benchmarking Map.new with input range ...
+Benchmarking comprehension with input list ...
+Benchmarking comprehension with input range ...
+
+##### With input list #####
+Name                    ips        average  deviation         median         99th %
+Enum.into          207.33 K        4.82 μs   ±195.45%        4.71 μs        5.88 μs
+Map.new            206.16 K        4.85 μs   ±197.68%        4.75 μs        5.92 μs
+comprehension      201.81 K        4.96 μs   ±371.40%        4.75 μs        5.96 μs
+
+Comparison: 
+Enum.into          207.33 K
+Map.new            206.16 K - 1.01x slower +0.0275 μs
+comprehension      201.81 K - 1.03x slower +0.132 μs
+
+Memory usage statistics:
+
+Name             Memory usage
+Enum.into             4.46 KB
+Map.new               4.46 KB - 1.00x memory usage +0 KB
+comprehension         4.46 KB - 1.00x memory usage +0 KB
+
+**All measurements for memory usage were the same**
+
+##### With input range #####
+Name                    ips        average  deviation         median         99th %
+comprehension      218.27 K        4.58 μs   ±189.66%        4.50 μs        5.58 μs
+Map.new            215.29 K        4.64 μs   ±296.53%        4.46 μs        5.75 μs
+Enum.into          173.23 K        5.77 μs   ±151.01%        5.58 μs       11.21 μs
+
+Comparison: 
+comprehension      218.27 K
+Map.new            215.29 K - 1.01x slower +0.0634 μs
+Enum.into          173.23 K - 1.26x slower +1.19 μs
+
+Memory usage statistics:
+
+Name             Memory usage
+comprehension         4.60 KB
+Map.new               4.60 KB - 1.00x memory usage +0 KB
+Enum.into            28.61 KB - 6.22x memory usage +24.01 KB
+
+**All measurements for memory usage were the same**
