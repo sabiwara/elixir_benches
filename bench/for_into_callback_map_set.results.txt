@@ -23,40 +23,40 @@ Benchmarking comprehension with input range ...
 
 ##### With input list #####
 Name                    ips        average  deviation         median         99th %
-comprehension      190.41 K        5.25 μs   ±162.08%        5.17 μs        6.21 μs
-MapSet.new         182.53 K        5.48 μs   ±193.74%        5.33 μs        6.42 μs
-Enum.into          182.32 K        5.48 μs   ±165.06%        5.33 μs        6.63 μs
+comprehension      207.22 K        4.83 μs   ±215.66%        4.71 μs        5.92 μs
+Enum.into          175.94 K        5.68 μs   ±112.50%        5.58 μs        6.83 μs
+MapSet.new         175.34 K        5.70 μs    ±89.89%        5.58 μs        6.83 μs
 
 Comparison: 
-comprehension      190.41 K
-MapSet.new         182.53 K - 1.04x slower +0.23 μs
-Enum.into          182.32 K - 1.04x slower +0.23 μs
+comprehension      207.22 K
+Enum.into          175.94 K - 1.18x slower +0.86 μs
+MapSet.new         175.34 K - 1.18x slower +0.88 μs
 
 Memory usage statistics:
 
 Name             Memory usage
-comprehension         2.76 KB
-MapSet.new            2.76 KB - 1.00x memory usage +0 KB
-Enum.into             2.76 KB - 1.00x memory usage +0 KB
+comprehension         3.97 KB
+Enum.into             2.76 KB - 0.69x memory usage -1.21094 KB
+MapSet.new            2.76 KB - 0.69x memory usage -1.21094 KB
 
 **All measurements for memory usage were the same**
 
 ##### With input range #####
 Name                    ips        average  deviation         median         99th %
-MapSet.new         192.56 K        5.19 μs   ±168.90%        5.08 μs        6.13 μs
-comprehension      189.18 K        5.29 μs   ±170.37%        5.17 μs        6.21 μs
-Enum.into          186.53 K        5.36 μs   ±393.75%        5.13 μs        6.50 μs
+comprehension      206.91 K        4.83 μs   ±172.67%        4.71 μs        6.02 μs
+MapSet.new         182.84 K        5.47 μs   ±132.33%        5.33 μs        6.67 μs
+Enum.into          179.22 K        5.58 μs   ±435.05%        5.33 μs        6.75 μs
 
 Comparison: 
-MapSet.new         192.56 K
-comprehension      189.18 K - 1.02x slower +0.0927 μs
-Enum.into          186.53 K - 1.03x slower +0.168 μs
+comprehension      206.91 K
+MapSet.new         182.84 K - 1.13x slower +0.64 μs
+Enum.into          179.22 K - 1.15x slower +0.75 μs
 
 Memory usage statistics:
 
 Name             Memory usage
-MapSet.new            1.66 KB
-comprehension         1.66 KB - 1.00x memory usage +0 KB
-Enum.into             1.66 KB - 1.00x memory usage +0 KB
+comprehension         4.61 KB
+MapSet.new            1.66 KB - 0.36x memory usage -2.95313 KB
+Enum.into             1.66 KB - 0.36x memory usage -2.95313 KB
 
 **All measurements for memory usage were the same**
