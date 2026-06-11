@@ -12,18 +12,21 @@ memory time: 0 ns
 reduction time: 0 ns
 parallel: 1
 inputs: none specified
-Estimated total run time: 21 s
+Estimated total run time: 28 s
 
 Benchmarking Enum.find ...
+Benchmarking Enum.member? ...
 Benchmarking String.to_existing_atom ...
 Benchmarking pattern-matching ...
 
 Name                              ips        average  deviation         median         99th %
-pattern-matching               6.78 M      147.51 ns ±25389.58%          84 ns         208 ns
-String.to_existing_atom        2.79 M      358.11 ns  ±6052.38%         333 ns         458 ns
-Enum.find                      0.99 M     1010.40 ns  ±1917.83%         958 ns        1125 ns
+pattern-matching               6.78 M      147.52 ns ±23307.47%          84 ns         209 ns
+String.to_existing_atom        2.79 M      358.13 ns  ±5676.54%         333 ns         458 ns
+Enum.member?                   1.98 M      504.51 ns  ±1659.86%         500 ns         625 ns
+Enum.find                      0.99 M     1006.85 ns  ±2098.81%         958 ns        1125 ns
 
 Comparison: 
 pattern-matching               6.78 M
 String.to_existing_atom        2.79 M - 2.43x slower +210.61 ns
-Enum.find                      0.99 M - 6.85x slower +862.89 ns
+Enum.member?                   1.98 M - 3.42x slower +356.99 ns
+Enum.find                      0.99 M - 6.83x slower +859.34 ns
