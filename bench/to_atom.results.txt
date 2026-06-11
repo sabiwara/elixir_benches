@@ -1,0 +1,29 @@
+Operating System: macOS
+CPU Information: Apple M1
+Number of Available Cores: 8
+Available memory: 16 GB
+Elixir 1.20.1
+Erlang 28.1
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 0 ns
+reduction time: 0 ns
+parallel: 1
+inputs: none specified
+Estimated total run time: 21 s
+
+Benchmarking Enum.find ...
+Benchmarking String.to_existing_atom ...
+Benchmarking pattern-matching ...
+
+Name                              ips        average  deviation         median         99th %
+pattern-matching               6.78 M      147.51 ns ±25389.58%          84 ns         208 ns
+String.to_existing_atom        2.79 M      358.11 ns  ±6052.38%         333 ns         458 ns
+Enum.find                      0.99 M     1010.40 ns  ±1917.83%         958 ns        1125 ns
+
+Comparison: 
+pattern-matching               6.78 M
+String.to_existing_atom        2.79 M - 2.43x slower +210.61 ns
+Enum.find                      0.99 M - 6.85x slower +862.89 ns
