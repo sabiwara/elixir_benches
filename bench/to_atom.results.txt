@@ -12,21 +12,24 @@ memory time: 0 ns
 reduction time: 0 ns
 parallel: 1
 inputs: none specified
-Estimated total run time: 28 s
+Estimated total run time: 35 s
 
 Benchmarking Enum.find ...
 Benchmarking Enum.member? ...
+Benchmarking Map.get ...
 Benchmarking String.to_existing_atom ...
 Benchmarking pattern-matching ...
 
 Name                              ips        average  deviation         median         99th %
-pattern-matching               6.78 M      147.52 ns ±23307.47%          84 ns         209 ns
-String.to_existing_atom        2.79 M      358.13 ns  ±5676.54%         333 ns         458 ns
-Enum.member?                   1.98 M      504.51 ns  ±1659.86%         500 ns         625 ns
-Enum.find                      0.99 M     1006.85 ns  ±2098.81%         958 ns        1125 ns
+pattern-matching               7.05 M      141.87 ns ±22040.12%          84 ns         208 ns
+String.to_existing_atom        2.78 M      359.43 ns  ±5505.37%         333 ns         458 ns
+Enum.member?                   1.93 M      517.33 ns  ±1832.10%         500 ns         667 ns
+Map.get                        1.89 M      529.80 ns  ±2566.74%         500 ns         666 ns
+Enum.find                      1.00 M      996.21 ns  ±1800.24%         958 ns        1125 ns
 
 Comparison: 
-pattern-matching               6.78 M
-String.to_existing_atom        2.79 M - 2.43x slower +210.61 ns
-Enum.member?                   1.98 M - 3.42x slower +356.99 ns
-Enum.find                      0.99 M - 6.83x slower +859.34 ns
+pattern-matching               7.05 M
+String.to_existing_atom        2.78 M - 2.53x slower +217.56 ns
+Enum.member?                   1.93 M - 3.65x slower +375.46 ns
+Map.get                        1.89 M - 3.73x slower +387.93 ns
+Enum.find                      1.00 M - 7.02x slower +854.34 ns
